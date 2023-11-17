@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import RegisterPage from './views/registerPage';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="App-logo">Logo</div>
+        <div className="App-title">The Big Garden Birdwatch</div>
       </header>
+      <main className="App-content">
+        <RegisterPage/>
+      </main>
     </div>
   );
 }
