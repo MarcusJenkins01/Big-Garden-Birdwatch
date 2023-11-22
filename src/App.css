@@ -15,16 +15,19 @@ body {
   display: flex;
   justify-content: left;
   flex-direction: row;
-  gap: 10px;
+  gap: 16px;
   width: 100%;
   margin: 0;
   padding: 10px;
   box-sizing: border-box;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  position: relative;
+  z-index: 1000;
 }
 
 .App-logo {
-
+  max-width: 32px;
 }
 
 .App-title {
@@ -32,5 +35,6 @@ body {
 }
 
 .App-content {
-  padding: 20px 15px;
+  z-index: 1;
+  width: 100%;
 }
