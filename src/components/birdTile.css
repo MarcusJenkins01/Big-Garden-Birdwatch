@@ -1,0 +1,98 @@
+.birdTile {
+  width: calc(25% - 20px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.birdThumbnailContainer {
+  height: 130px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.birdThumbnail {
+  width: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.birdContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  border-top: none;
+  border-right: none;
+}
+
+.birdContent > p {
+  color: #333;
+  padding: 10px 15px;
+  display: inline-block;
+  margin: 0;
+  margin-block: 0;
+  text-align: center;
+}
+
+.birdCount {
+  background-color: #037789;
+  height: 100%;
+  font-weight: bold;
+  color:white;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.8em;
+  text-align: center;
+}
+
+@media only screen and (max-width: 850px) {
+  .birdTile {
+    width: calc(33% - 13px);
+  }
+
+  .birdThumbnailContainer {
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .birdTile {
+    width: calc(50% - 13px);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .birdThumbnailContainer {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .birdContent > p {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .birdTile {
+    width: 100%;
+    min-width: 200px;
+  }
+
+  .birdContent > p {
+    font-size: 1em;
+  }
+
+  .birdThumbnailContainer {
+    height: 130px;
+  }
+}

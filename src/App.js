@@ -1,7 +1,7 @@
 import './App.css';
-import RegisterPage from './views/registerPage';
+import { Outlet, Link } from "react-router-dom";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <header className="App-header">
@@ -9,7 +9,7 @@ function App() {
         <div className="App-title">The Big Garden Birdwatch</div>
       </header>
       <main className="App-content">
-        <RegisterPage/>
+        <Outlet/>
       </main>
     </div>
   );
