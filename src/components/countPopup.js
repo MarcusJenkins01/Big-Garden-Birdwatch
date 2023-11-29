@@ -29,11 +29,13 @@ function CountPopup(props) {
     };
   }, [ props.closePopup ]);
 
+  var birdImage = props.birds[props.birdKey].image ? props.birds[props.birdKey].image : props.birds[props.birdKey].imageMale;
+
   return (
     <div className="countPopupBackground">
       <div className="countPopup" ref={ref}>
         <div className="birdImageContainer">
-          <img className="birdImage" src={props.birds[props.birdKey].imageUrl}/>
+          <img className="birdImage" src={birdImage}/>
         </div>
         <div className="countControls">
           <input className="adjustButtons" type="button" value="-" onClick={() => minusClicked(props.birdKey)}/>
