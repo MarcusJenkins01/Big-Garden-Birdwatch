@@ -12,6 +12,34 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.sexButtons {
+  display: flex;
+  justify-content: end;
+  gap: 2px;
+}
+
+.sexButtons > button {
+  padding: 0 8px;
+  font-size: 1em;
+  font-family: 'Poppins';
+  background-color: rgb(223, 223, 223);
+  color: #474747;
+  border: none;
+  outline: none;
+  font-weight: bolder;
+}
+
+.sexButtons > button.selected {
+  background-color: rgb(190, 190, 190);
+  color: #474747;
+}
+
+.sexButtons > button.greyed {
+  font-weight: normal;
+  background-color: rgb(226, 226, 226);
+  color: #474747;
+}
+
 .birdThumbnailContainer {
   height: 130px;
   overflow: hidden;
