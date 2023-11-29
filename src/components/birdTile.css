@@ -1,15 +1,22 @@
 .birdTile {
   width: calc(25% - 20px);
+}
+
+.tileShadowContainer {
   display: flex;
   flex-direction: column;
   border-radius: 2px;
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .birdThumbnailContainer {
   height: 130px;
-  width: 100%;
   overflow: hidden;
+  margin: 10px;
+  border-radius: 2px;
 }
 
 .birdThumbnail {
@@ -26,16 +33,11 @@
   justify-content: space-between;
   width: 100%;
   background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-  border-top: none;
-  border-right: none;
 }
 
 .birdContent > p {
   color: #333;
   padding: 10px 15px;
-  display: inline-block;
   margin: 0;
   margin-block: 0;
   text-align: center;
@@ -43,7 +45,6 @@
 
 .birdCount {
   background-color: #037789;
-  height: 100%;
   font-weight: bold;
   color:white;
   padding: 0 12px;

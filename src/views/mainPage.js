@@ -4,6 +4,7 @@ import BirdTile from '../components/birdTile';
 import React, { useState } from 'react';
 import CountPopup from '../components/countPopup';
 
+
 function MainPage() {
   const [birds, setBirds] = useState({
     blackbird: { displayName: "Blackbird", imageUrl: "bird_images/blackbird.jpg", count: 0 },
@@ -28,21 +29,34 @@ function MainPage() {
     wren: { displayName: "Wren", imageUrl: "bird_images/wren.jpg", count: 0 },
   });
   
+  const [searchInput, setSearchInput] = useState("");
   const [editingBird, setEditingBird] = useState(null);
   
   const tilePressed = (birdKey) => {
     setEditingBird(birdKey);
   }
 
+  const searchHandler = (e) => {
+    var lowerCase = e.target.value.toLowerCase();
+    setSearchInput(lowerCase);
+  };
+
+  var filteredBirds = Object.keys(birds).reduce(function (filtered, key) {
+      if (birds[key].displayName.toLowerCase().includes(searchInput)) filtered[key] = birds[key];
+      return filtered;
+  }, {});
+
+  
+
   return (
     <div className="mainPageContainer">
       <div className="mainPage">
         <div className="topBar">
           <input className="App-button-primary" type="button" value="Report another bird"/>
-          <input className="searchBar" type="text" placeholder="Search"/>
+          <input onChange={searchHandler} className="searchBar" type="text" placeholder="Search"/>
         </div>
         <div className="birdGrid">
-          { Object.entries(birds).map( ([key, value]) =>
+          { Object.entries(filteredBirds).map( ([key, value]) =>
           <BirdTile key={key} name={value.displayName} imageUrl={value.imageUrl} count={value.count} onClick={() => tilePressed(key)}/> ) }
         </div>
         <div className="controls">
