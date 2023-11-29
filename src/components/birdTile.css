@@ -36,8 +36,8 @@
 
 .sexButtons > button.greyed {
   font-weight: normal;
-  background-color: rgb(226, 226, 226);
-  color: #474747;
+  background-color: transparent;
+  color: transparent;
 }
 
 .birdThumbnailContainer {

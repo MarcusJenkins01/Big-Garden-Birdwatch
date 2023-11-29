@@ -37,6 +37,7 @@ function CountPopup(props) {
         <div className="birdImageContainer">
           <img className="birdImage" src={birdImage}/>
         </div>
+        <div className="birdDescription">{props.birds[props.birdKey].description}</div>
         <div className="countControls">
           <input className="adjustButtons" type="button" value="-" onClick={() => minusClicked(props.birdKey)}/>
           <p>{props.birds[props.birdKey].count}</p>
