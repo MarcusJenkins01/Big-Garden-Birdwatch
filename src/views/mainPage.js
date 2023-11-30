@@ -110,8 +110,6 @@ function MainPage() {
       return filtered;
   }, {});
 
-  
-
   return (
     <div className="mainPageContainer">
       <div className="mainPage">

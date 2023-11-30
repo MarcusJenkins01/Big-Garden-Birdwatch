@@ -1,19 +1,37 @@
 import './countPopup.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 function CountPopup(props) {
   var birds = {...props.birds}
 
+  const [popAnimation, setPopAnimation] = useState(false);
+  const [deniedAnimation, setDeniedAnimation] = useState(false);
+
+  const doPopAnimation = () => {
+    setPopAnimation(true);
+    setTimeout(() => setPopAnimation(false), 200);
+  }
+
+  const doDeniedAnimation = () => {
+    setDeniedAnimation(true);
+    setTimeout(() => setDeniedAnimation(false), 200);
+  }
+
   const plusClicked = (key) => {
     birds[key].count += 1;
     props.setBirds(birds);
+    doPopAnimation();
   }
 
   const minusClicked = (key) => {
-    birds[key].count = Math.max(birds[key].count - 1, 0);
-    props.setBirds(birds);
-    console.log(key);
+    if (birds[key].count === 0) {
+      doDeniedAnimation();
+    } else {
+      birds[key].count = Math.max(birds[key].count - 1, 0);
+      props.setBirds(birds);
+      doPopAnimation();
+    }
   }
 
   const ref = useRef(null);
@@ -40,7 +58,7 @@ function CountPopup(props) {
         <div className="birdDescription">{props.birds[props.birdKey].description}</div>
         <div className="countControls">
           <input className="adjustButtons" type="button" value="-" onClick={() => minusClicked(props.birdKey)}/>
-          <p>{props.birds[props.birdKey].count}</p>
+          <p className={deniedAnimation ? "denied-animation" : (popAnimation ? "pop-animation" : "")}>{props.birds[props.birdKey].count}</p>
           <input className="adjustButtons" type="button" value="+" onClick={() => plusClicked(props.birdKey)}/>
         </div>
       </div>

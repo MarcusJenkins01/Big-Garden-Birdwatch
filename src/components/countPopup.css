@@ -66,6 +66,25 @@
   width: 2em;
 }
 
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.countControls > p.pop-animation {
+  animation: pop 0.2s ease;
+}
+@keyframes denied {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+.countControls > p.denied-animation {
+  animation: denied 0.2s ease;
+}
+
 .birdDescription {
   padding: 16px
 }
