@@ -1,5 +1,7 @@
 import './countPopup.css';
 import { useEffect, useRef, useState } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import { FaMinus } from 'react-icons/fa';
 
 
 function CountPopup(props) {
@@ -7,6 +9,11 @@ function CountPopup(props) {
 
   const [popAnimation, setPopAnimation] = useState(false);
   const [deniedAnimation, setDeniedAnimation] = useState(false);
+  
+  var bird = props.birds[props.birdKey];
+  var hasSex = bird.imageMale && bird.imageFemale;
+  const [sex, setSex] = useState("m");
+  var imageSrc = hasSex ? (sex === "f" ? bird.imageFemale : bird.imageMale) : bird.image;
 
   const doPopAnimation = () => {
     setPopAnimation(true);
@@ -47,19 +54,27 @@ function CountPopup(props) {
     };
   }, [ props.closePopup ]);
 
-  var birdImage = props.birds[props.birdKey].image ? props.birds[props.birdKey].image : props.birds[props.birdKey].imageMale;
-
   return (
     <div className="countPopupBackground">
       <div className="countPopup" ref={ref}>
         <div className="birdImageContainer">
-          <img className="birdImage" src={birdImage}/>
+          <img className="birdImage" src={imageSrc}/>
         </div>
-        <div className="birdDescription">{props.birds[props.birdKey].description}</div>
+        { hasSex ?
+          <div className="sexControls">
+              <button className={sex === "m" ? "selected" : ""} onClick={() => setSex("m")}>MALE</button>
+              <button className={sex === "f" ? "selected" : ""} onClick={() => setSex("f")}>FEMALE</button>
+          </div>
+        : <></> }
+        <div className="birdDescription">{bird.description}</div>
         <div className="countControls">
-          <input className="adjustButtons" type="button" value="-" onClick={() => minusClicked(props.birdKey)}/>
-          <p className={deniedAnimation ? "denied-animation" : (popAnimation ? "pop-animation" : "")}>{props.birds[props.birdKey].count}</p>
-          <input className="adjustButtons" type="button" value="+" onClick={() => plusClicked(props.birdKey)}/>
+          <button className="adjustButtons" onClick={() => minusClicked(props.birdKey)}>
+            <FaMinus/>
+          </button>
+          <p className={deniedAnimation ? "denied-animation" : (popAnimation ? "pop-animation" : "")}>{bird.count}</p>
+          <button className="adjustButtons" onClick={() => plusClicked(props.birdKey)}>
+            <FaPlus/>
+          </button>
         </div>
       </div>
     </div>
