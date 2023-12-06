@@ -14,7 +14,7 @@
 
 .sexButtons {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 2px;
 }
 
@@ -73,19 +73,18 @@
 
 .birdCount {
   background-color: #037789;
-  font-weight: bold;
   color:white;
   padding: 0 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 0.8em;
+  width: 1em;
   text-align: center;
 }
 
 @media only screen and (max-width: 850px) {
   .birdTile {
-    width: calc(33% - 13px);
+    width: calc(33% - 17px);
   }
 
   .birdThumbnailContainer {
@@ -95,7 +94,7 @@
 
 @media only screen and (max-width: 670px) {
   .birdTile {
-    width: calc(50% - 13px);
+    width: calc(50% - 18px);
   }
 }
 
@@ -105,23 +104,13 @@
   }
 }
 
-@media only screen and (max-width: 430px) {
-  .birdContent > p {
-    font-size: 0.8em;
-  }
-}
-
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 400px) {
   .birdTile {
-    width: 100%;
+    width: calc(100% - 18px);
     min-width: 200px;
   }
 
-  .birdContent > p {
-    font-size: 1em;
-  }
-
   .birdThumbnailContainer {
-    height: 130px;
+    height: 150px;
   }
 }

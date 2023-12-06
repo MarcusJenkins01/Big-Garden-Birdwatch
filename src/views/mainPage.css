@@ -20,7 +20,7 @@
   margin: 16px;
   box-sizing: border-box;
   display: flex;
-  align-content: start;
+  align-content: flex-start;
   flex-wrap: wrap;
   overflow-y: scroll;
   gap: 20px;
@@ -61,21 +61,4 @@
   box-sizing: border-box;
   padding: 4px 8px;
   max-width: 300px;
-}
-
-@media only screen and (max-width: 850px) {
-  .birdTile {
-    width: calc(33% - 13px);
-  }
-
-  .birdThumbnailContainer {
-    height: 130px;
-  }
-}
-
-
-@media only screen and (max-width: 430px) {
-  input[type=button] {
-    font-size: 0.8em;
-  }
 }

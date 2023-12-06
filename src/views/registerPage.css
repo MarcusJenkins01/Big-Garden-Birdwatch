@@ -2,18 +2,122 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  background-color: #3aaf92;
+  height: calc(100vh - 52px);
+  /* background-color: #3aaf92; */
+  background-color: rgb(236, 236, 236);
   box-sizing: border-box;
-  padding: 100px 16px;
+  padding: 80px 16px
 }
 
 .registerFormContainer {
-  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
   max-width: 600px;
   border-radius: 16px;
   background-color: white;
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-  padding: 32px;
+  box-shadow: 0 2px 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 30px;
   box-sizing: border-box;
+}
+
+.registerFormContainer h1 {
+  color: rgb(50, 50, 50);
+  font-size: 1.4em;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.input {
+  font-family: 'Poppins';
+  font-size: 0.9em;
+  border-radius: 5px;
+  outline: none;
+  border-color: #bbbbbb;
+  border-style: solid;
+  border-width: 1px;
+  padding: 7px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputsContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.inputGroup {
+  margin-bottom: 25px;
+}
+
+.inputGroupPostcode {
+  position: relative;
+}
+
+.inputGroupPostcode > .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inputGroup > p, .inputGroupPostcode p {
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.addressList {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  height: 115px;
+  box-sizing: border-box;
+}
+
+.addressList button {
+  cursor: pointer;
+  width: 100%;
+  background-color: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: none;
+  outline: 0;
+  padding: 5px;
+  font-family: 'Poppins';
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.addressList button:first-of-type {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.addressList button:hover {
+  background-color: #e4e4e4;
+}
+
+.registerButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.registerButton {
+  cursor: pointer;
+  color: white;
+  font-size: 1em;
+  font-family: 'Poppins';
+  padding: 8px 25px;
+  background-color: #3a98af;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
 }
