@@ -89,6 +89,19 @@
   margin-bottom: 6px;
 }
 
+.errorMessage {
+  color: #4d4d4d;
+}
+
+@keyframes pulse {
+  50% { opacity: 0.2; }
+  0%, 100% { opacity: 1; }
+}
+
+.errorMessage.pulse {
+  animation: pulse 0.5s ease-in-out;
+}
+
 .addressList {
   position: absolute;
   width: 100%;

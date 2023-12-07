@@ -40,6 +40,7 @@ function RegisterPage() {
   const [postcodeError, setPostcodeError] = useState("");
   const [addressLine1Error, setAddressLine1Error] = useState("");
   const [cityError, setCityError] = useState("");
+  const [pulseAnimation, setPulseAnimation] = useState(false);
 
   const register = () => {
     setNameError("");
@@ -77,6 +78,11 @@ function RegisterPage() {
 
     if (!errors) {
       navigate("/main");
+    } else {
+      if (!pulseAnimation) {
+        setPulseAnimation(true);
+        setTimeout(() => setPulseAnimation(false), 500)
+      }
     }
   }
 
@@ -116,7 +122,7 @@ function RegisterPage() {
     setSelectedPostcode(null);
     setSuggestPostcodes({});
     setDisplayAddress(true);
-    
+
     setPostcodeError("");
     setAddressLine1Error("");
     setCityError("");
@@ -132,13 +138,13 @@ function RegisterPage() {
         <div className="inputGroup">
           <p>Full name</p>
           <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
-          <p className="errorMessage">{nameError}</p>
+          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
         </div>
 
         <div className="inputGroup">
           <p>Email address</p>
           <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
-          <p className="errorMessage">{emailError}</p>
+          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
         </div>
 
         {
@@ -147,12 +153,12 @@ function RegisterPage() {
             <div className="inputGroup">
               <p>Address line 1</p>
               <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
-              <p className="errorMessage">{addressLine1Error}</p>
+              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
             </div>
             <div className="inputGroup">
               <p>City</p>
               <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
-              <p className="errorMessage">{cityError}</p>
+              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
             </div>
           </>
           :
@@ -165,7 +171,7 @@ function RegisterPage() {
             { !displayAddress && <button className="enterManuallyButton" onClick={enterAddressManually}>Enter address manually</button> }
           </div>
           <input type="text" className="input" onChange={postcodeChange} value={postcodeText}/>
-          <p className="errorMessage">{postcodeError}</p>
+          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{postcodeError}</p>
           {
             (Object.keys(suggestedPostcodes).length > 0 || selectedPostcode) &&
             <div className="addressList">
