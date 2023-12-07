@@ -110,7 +110,7 @@ function RegisterPage() {
         <div className="inputGroupPostcode">
           <div className="header">
             <p>Postcode</p>
-            { !displayAddress && <button onClick={enterAddressManually}>Enter address manually</button> }
+            { !displayAddress && <button className="enterManuallyButton" onClick={enterAddressManually}>Enter address manually</button> }
           </div>
           <input type="text" className="input" onChange={postcodeChange} value={postcodeText}/>
           <div className="addressList">
