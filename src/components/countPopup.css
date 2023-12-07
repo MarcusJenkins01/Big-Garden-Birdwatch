@@ -3,9 +3,9 @@
   padding: 20px;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 52px;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 52px);
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
@@ -14,6 +14,8 @@
 }
 
 .countPopup {
+  max-height: 80vh;
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -23,6 +25,16 @@
   justify-content: space-between;
   max-width: 600px;
   overflow: hidden;
+}
+
+.countPopup h1 {
+  color: rgb(50, 50, 50);
+  font-size: 1.4em;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
+  padding: 16px;
+  padding-bottom: 0;
 }
 
 .birdImageContainer {
@@ -81,6 +93,11 @@
   font-size: 1em !important;
   font-weight: bold;
   border: none;
+  cursor: pointer;
+}
+
+.adjustButtons:hover {
+  background-color: rgb(59, 120, 145);
 }
 
 .countControls > p {

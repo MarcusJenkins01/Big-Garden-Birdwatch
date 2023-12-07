@@ -66,7 +66,9 @@ function CountPopup(props) {
               <button className={sex === "f" ? "selected" : ""} onClick={() => setSex("f")}>FEMALE</button>
           </div>
         : <></> }
+        <h1>{bird.displayName}</h1>
         <div className="birdDescription">{bird.description}</div>
+        
         <div className="countControls">
           <button className="adjustButtons" onClick={() => minusClicked(props.birdKey)}>
             <FaMinus/>

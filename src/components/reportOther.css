@@ -1,0 +1,109 @@
+.reportOtherBackground {
+  box-sizing: border-box;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  top: 52px;
+  width: 100vw;
+  height: calc(100vh - 52px);
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.reportOther {
+  max-height: 80vh;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  justify-content: space-between;
+  max-width: 600px;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.reportOther h1 {
+  color: rgb(50, 50, 50);
+  font-size: 1.3em;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.reportOther h3 {
+  color: rgb(50, 50, 50);
+  font-size: 18px;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.input {
+  font-family: 'Poppins';
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+  border-color: #bbbbbb;
+  border-style: solid;
+  border-width: 1px;
+  padding: 7px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputGroup {
+  margin-bottom: 25px;
+}
+
+.inputGroup p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.inputGroup h2 {
+  font-size: 19px;
+  font-weight: normal;
+  margin-block: 0;
+  margin-bottom: 5px;
+}
+
+.reportOtherButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: nowrap;
+}
+
+.reportOtherButtons > .cancelButton {
+  cursor: pointer;
+  color: rgb(51, 51, 51);
+  font-size: 18px;
+  font-family: 'Poppins';
+  padding: 8px 25px;
+  background-color: #e2e2e2;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.reportOtherButtons > .submitButton {
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  font-family: 'Poppins';
+  padding: 8px 25px;
+  background-color: #3a98af;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}

@@ -24,6 +24,16 @@
   box-sizing: border-box;
 }
 
+@media only screen and (max-width: 650px) {
+  .registerPageContainer {
+    padding: 16px 16px;
+  }
+
+  .registerFormContainer {
+    padding: 24px;
+  }
+}
+
 .registerFormContainer h1 {
   color: rgb(50, 50, 50);
   font-size: 1.4em;
@@ -59,10 +69,19 @@
 
 .inputGroup p {
   font-size: 18px;
+  margin: 0;
+}
+
+.inputGroup h2, .inputGroupPostcode h2 {
+  font-size: 19px;
+  font-weight: normal;
+  margin-block: 0;
+  margin-bottom: 5px;
 }
 
 .inputGroupPostcode {
   position: relative;
+  margin-bottom: 25px;
 }
 
 .inputGroupPostcode > .header {
@@ -94,12 +113,15 @@
 }
 
 @keyframes pulse {
-  50% { opacity: 0.2; }
-  0%, 100% { opacity: 1; }
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
 
 .errorMessage.pulse {
-  animation: pulse 0.5s ease-in-out;
+  animation: pulse 0.3s ease-in-out;
 }
 
 .addressList {
@@ -111,12 +133,13 @@
   overflow-y: auto;
   height: 115px;
   box-sizing: border-box;
+  transform: translateY(-7px);
 }
 
 .addressList button {
   cursor: pointer;
   width: 100%;
-  background-color: #fafafa;
+  background-color: #f7f7f7;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-top: none;
   outline: 0;
@@ -131,7 +154,7 @@
 }
 
 .addressList button:hover {
-  background-color: #e4e4e4;
+  background-color: #dfdfdf;
 }
 
 .registerButtons {

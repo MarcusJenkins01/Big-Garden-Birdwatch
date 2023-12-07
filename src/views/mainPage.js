@@ -3,6 +3,7 @@ import '../App.css'
 import BirdTile from '../components/birdTile';
 import React, { useState } from 'react';
 import CountPopup from '../components/countPopup';
+import ReportOther from '../components/reportOther';
 
 
 function MainPage() {
@@ -95,9 +96,16 @@ function MainPage() {
   
   const [searchInput, setSearchInput] = useState("");
   const [editingBird, setEditingBird] = useState(null);
+  const [reportOther, setReportOther] = useState(false);
   
   const tilePressed = (birdKey) => {
     setEditingBird(birdKey);
+    setReportOther(false);
+  }
+
+  const reportOtherPress = () => {
+    setReportOther(true);
+    setEditingBird(null);
   }
 
   const searchHandler = (e) => {
@@ -114,7 +122,7 @@ function MainPage() {
     <div className="mainPageContainer">
       <div className="mainPage">
         <div className="topBar">
-          <input className="App-button-primary" type="button" value="Report another bird"/>
+          <input onClick={reportOtherPress} className="App-button-primary" type="button" value="Report another bird"/>
           <input onChange={searchHandler} className="searchBar" type="text" placeholder="Search"/>
         </div>
         <div className="birdGrid">
@@ -128,6 +136,7 @@ function MainPage() {
       </div>
 
       { editingBird != null && <CountPopup birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
+      { reportOther && <ReportOther birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
     </div>
   );
 }

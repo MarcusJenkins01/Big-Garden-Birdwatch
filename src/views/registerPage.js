@@ -33,6 +33,8 @@ function RegisterPage() {
   const [postcodeText, setPostcodeText] = useState("");
   const [addressLine1, setAddressLine1] = useState("");
   const [city, setCity] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
 
   // Error states
   const [nameError, setNameError] = useState("");
@@ -40,6 +42,8 @@ function RegisterPage() {
   const [postcodeError, setPostcodeError] = useState("");
   const [addressLine1Error, setAddressLine1Error] = useState("");
   const [cityError, setCityError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPassError, setConfirmPassError] = useState("");
   const [pulseAnimation, setPulseAnimation] = useState(false);
 
   const register = () => {
@@ -48,6 +52,8 @@ function RegisterPage() {
     setPostcodeError("");
     setAddressLine1Error("");
     setCityError("");
+    setPasswordError("");
+    setConfirmPassError("");
 
     var errors = false;
 
@@ -66,13 +72,30 @@ function RegisterPage() {
       errors = true;
     }
 
-    if (addressLine1.length === 0) {
-      setAddressLine1Error("Please enter the first line of your address");
+    if (displayAddress) {
+      if (addressLine1.length === 0) {
+        setAddressLine1Error("Please enter the first line of your address");
+        errors = true;
+      }
+  
+      if (city.length === 0) {
+        setCityError("Please enter your city");
+        errors = true;
+      }
+    }
+
+    if (password.length === 0) {
+      setPasswordError("Please a enter password");
       errors = true;
     }
 
-    if (city.length === 0) {
-      setCityError("Please enter your city");
+    if (confirmPass.length === 0) {
+      setConfirmPassError("Please confirm your password");
+      errors = true;
+    }
+
+    if (confirmPass.length > 0 && password.length > 0 && password !== confirmPass) {
+      setConfirmPassError("Passwords do not match");
       errors = true;
     }
 
@@ -81,7 +104,7 @@ function RegisterPage() {
     } else {
       if (!pulseAnimation) {
         setPulseAnimation(true);
-        setTimeout(() => setPulseAnimation(false), 500)
+        setTimeout(() => setPulseAnimation(false), 300)
       }
     }
   }
@@ -133,57 +156,67 @@ function RegisterPage() {
       <div className="registerFormContainer">
       
       <div>
-      <h1>Register to participate</h1>
+        <h1>Register to participate</h1>
 
-        <div className="inputGroup">
-          <p>Full name</p>
-          <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
-          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
-        </div>
-
-        <div className="inputGroup">
-          <p>Email address</p>
-          <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
-          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
-        </div>
-
-        {
-          displayAddress ?
-          <>
-            <div className="inputGroup">
-              <p>Address line 1</p>
-              <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
-              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
-            </div>
-            <div className="inputGroup">
-              <p>City</p>
-              <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
-              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
-            </div>
-          </>
-          :
-          <></>
-        }
-
-        <div className="inputGroupPostcode">
-          <div className="header">
-            <p>Postcode</p>
-            { !displayAddress && <button className="enterManuallyButton" onClick={enterAddressManually}>Enter address manually</button> }
+          <div className="inputGroup">
+            <h2>Full name</h2>
+            <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
+            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
           </div>
-          <input type="text" className="input" onChange={postcodeChange} value={postcodeText}/>
-          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{postcodeError}</p>
+
+          <div className="inputGroup">
+            <h2>Email address</h2>
+            <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
+            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
+          </div>
+
           {
-            (Object.keys(suggestedPostcodes).length > 0 || selectedPostcode) &&
-            <div className="addressList">
-              { selectedPostcode ? selectedPostcode.addresses.map(v => <button onClick={() => handleSelectAddress(v)}>{v}</button>) :
-                Object.entries(suggestedPostcodes).map( ([key, value]) =>
-                  <button onClick={() => setSelectedPostcode({postcode: key, addresses: value})}>{key}</button> )
-              }
-            </div>
+            displayAddress ?
+            <>
+              <div className="inputGroup">
+                <h2>Address line 1</h2>
+                <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
+                <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
+              </div>
+              <div className="inputGroup">
+                <h2>City</h2>
+                <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
+                <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
+              </div>
+            </>
+            :
+            <></>
           }
+
+          <div className="inputGroupPostcode">
+            <div className="header">
+              <h2>Postcode</h2>
+              { !displayAddress && <button className="enterManuallyButton" onClick={enterAddressManually}>Enter address manually</button> }
+            </div>
+            <input type="text" className="input" onChange={postcodeChange} value={postcodeText}/>
+            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{postcodeError}</p>
+            {
+              (Object.keys(suggestedPostcodes).length > 0 || selectedPostcode) &&
+              <div className="addressList">
+                { selectedPostcode ? selectedPostcode.addresses.map(v => <button key={v.split(", ")[0]} onClick={() => handleSelectAddress(v)}>{v}</button>) :
+                  Object.entries(suggestedPostcodes).map( ([key, value]) =>
+                    <button key={key} onClick={() => setSelectedPostcode({postcode: key, addresses: value})}>{key}</button> )
+                }
+              </div>
+            }
+          </div>
+          <div className="inputGroup">
+          <h2>Password</h2>
+          <input type="password" className="input" onChange={(e) => setPassword(e.target.value)} value={password}/>
+          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{passwordError}</p>
+        </div>
+
+        <div className="inputGroup">
+          <h2>Confirm password</h2>
+          <input type="password" className="input" onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass}/>
+          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{confirmPassError}</p>
         </div>
       </div>
-        
         <div className="registerButtons">
           <button className="registerButton" onClick={register}>Register</button>
         </div>
