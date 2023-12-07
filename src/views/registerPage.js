@@ -34,14 +34,58 @@ function RegisterPage() {
   const [addressLine1, setAddressLine1] = useState("");
   const [city, setCity] = useState("");
 
-  const navigateToMain = () => {
-    navigate("/main");
+  // Error states
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [postcodeError, setPostcodeError] = useState("");
+  const [addressLine1Error, setAddressLine1Error] = useState("");
+  const [cityError, setCityError] = useState("");
+
+  const register = () => {
+    setNameError("");
+    setEmailError("");
+    setPostcodeError("");
+    setAddressLine1Error("");
+    setCityError("");
+
+    var errors = false;
+
+    if (fullName.length === 0) {
+      setNameError("Please enter your full name");
+      errors = true;
+    }
+
+    if (email.length === 0) {
+      setEmailError("Please enter your email");
+      errors = true;
+    }
+
+    if (postcodeText.length === 0) {
+      setPostcodeError("Please enter your postcode");
+      errors = true;
+    }
+
+    if (addressLine1.length === 0) {
+      setAddressLine1Error("Please enter the first line of your address");
+      errors = true;
+    }
+
+    if (city.length === 0) {
+      setCityError("Please enter your city");
+      errors = true;
+    }
+
+    if (!errors) {
+      navigate("/main");
+    }
   }
 
   const postcodeChange = (e) => {
     setPostcodeText(e.target.value);
 
     if (manualAddress) return;
+
+    setPostcodeError("");
 
     var postcode = e.target.value.toLowerCase().replace(" ", "");
     var newPostcodes = {};
@@ -72,6 +116,10 @@ function RegisterPage() {
     setSelectedPostcode(null);
     setSuggestPostcodes({});
     setDisplayAddress(true);
+    
+    setPostcodeError("");
+    setAddressLine1Error("");
+    setCityError("");
   }
 
   return (
@@ -84,11 +132,13 @@ function RegisterPage() {
         <div className="inputGroup">
           <p>Full name</p>
           <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
+          <p className="errorMessage">{nameError}</p>
         </div>
 
         <div className="inputGroup">
           <p>Email address</p>
           <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
+          <p className="errorMessage">{emailError}</p>
         </div>
 
         {
@@ -97,10 +147,12 @@ function RegisterPage() {
             <div className="inputGroup">
               <p>Address line 1</p>
               <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
+              <p className="errorMessage">{addressLine1Error}</p>
             </div>
             <div className="inputGroup">
               <p>City</p>
               <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
+              <p className="errorMessage">{cityError}</p>
             </div>
           </>
           :
@@ -113,6 +165,7 @@ function RegisterPage() {
             { !displayAddress && <button className="enterManuallyButton" onClick={enterAddressManually}>Enter address manually</button> }
           </div>
           <input type="text" className="input" onChange={postcodeChange} value={postcodeText}/>
+          <p className="errorMessage">{postcodeError}</p>
           {
             (Object.keys(suggestedPostcodes).length > 0 || selectedPostcode) &&
             <div className="addressList">
@@ -126,7 +179,7 @@ function RegisterPage() {
       </div>
         
         <div className="registerButtons">
-          <button className="registerButton" onClick={navigateToMain}>Register</button>
+          <button className="registerButton" onClick={register}>Register</button>
         </div>
       </div>
     </div>
