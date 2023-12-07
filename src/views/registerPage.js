@@ -113,17 +113,20 @@ function RegisterPage() {
             { !displayAddress && <button className="enterManuallyButton" onClick={enterAddressManually}>Enter address manually</button> }
           </div>
           <input type="text" className="input" onChange={postcodeChange} value={postcodeText}/>
-          <div className="addressList">
-            { selectedPostcode ? selectedPostcode.addresses.map(v => <button onClick={() => handleSelectAddress(v)}>{v}</button>) :
-              Object.entries(suggestedPostcodes).map( ([key, value]) =>
-                <button onClick={() => setSelectedPostcode({postcode: key, addresses: value})}>{key}</button> )
-            }
-          </div>
+          {
+            (Object.keys(suggestedPostcodes).length > 0 || selectedPostcode) &&
+            <div className="addressList">
+              { selectedPostcode ? selectedPostcode.addresses.map(v => <button onClick={() => handleSelectAddress(v)}>{v}</button>) :
+                Object.entries(suggestedPostcodes).map( ([key, value]) =>
+                  <button onClick={() => setSelectedPostcode({postcode: key, addresses: value})}>{key}</button> )
+              }
+            </div>
+          }
         </div>
       </div>
         
-        <div className="registerButtons" onClick={navigateToMain}>
-          <button className="registerButton">Register</button>
+        <div className="registerButtons">
+          <button className="registerButton" onClick={navigateToMain}>Register</button>
         </div>
       </div>
     </div>
