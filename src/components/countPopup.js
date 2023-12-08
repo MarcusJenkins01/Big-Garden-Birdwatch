@@ -25,19 +25,27 @@ function CountPopup(props) {
     setTimeout(() => setDeniedAnimation(false), 200);
   }
 
-  const plusClicked = (key) => {
-    birds[key].count += 1;
+  const plusClicked = () => {
+    birds[props.birdKey].count += 1;
     props.setBirds(birds);
     doPopAnimation();
   }
 
-  const minusClicked = (key) => {
-    if (birds[key].count === 0) {
+  const minusClicked = () => {
+    if (birds[props.birdKey].count === 0) {
       doDeniedAnimation();
     } else {
-      birds[key].count = Math.max(birds[key].count - 1, 0);
+      birds[props.birdKey].count = Math.max(birds[props.birdKey].count - 1, 0);
       props.setBirds(birds);
       doPopAnimation();
+    }
+  }
+
+  const deleteBird = () => {
+    if (bird.customBird === true) {
+      delete birds[props.birdKey];
+      props.setBirds(birds);
+      props.closePopup();
     }
   }
 
@@ -70,14 +78,18 @@ function CountPopup(props) {
         <div className="birdDescription">{bird.description}</div>
         
         <div className="countControls">
-          <button className="adjustButtons" onClick={() => minusClicked(props.birdKey)}>
+          <button className="adjustButtons" onClick={minusClicked}>
             <FaMinus/>
           </button>
           <p className={deniedAnimation ? "denied-animation" : (popAnimation ? "pop-animation" : "")}>{bird.count}</p>
-          <button className="adjustButtons" onClick={() => plusClicked(props.birdKey)}>
+          <button className="adjustButtons" onClick={plusClicked}>
             <FaPlus/>
           </button>
         </div>
+
+        {bird.customBird === true && <div className="deleteBirdContainer">
+          <button class="deleteBirdButton" onClick={deleteBird}>Delete</button>
+        </div>}
       </div>
     </div>
   );

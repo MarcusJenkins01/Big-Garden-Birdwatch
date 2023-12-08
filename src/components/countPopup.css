@@ -130,3 +130,23 @@
 .birdDescription {
   padding: 16px
 }
+
+.deleteBirdContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding: 16px;
+}
+
+.deleteBirdButton {
+  cursor: pointer;
+  color: rgb(41, 41, 41);
+  font-size: 18px;
+  font-family: 'Poppins';
+  padding: 8px 25px;
+  background-color: #e2e2e2;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  outline: none;
+}

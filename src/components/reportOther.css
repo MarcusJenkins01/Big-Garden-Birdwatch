@@ -68,6 +68,22 @@
   margin: 0;
 }
 
+.errorMessage {
+  color: #4d4d4d;
+}
+
+@keyframes error-message {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.errorMessage.vibrate {
+  animation: error-message 0.3s ease-in-out;
+}
+
 .inputGroup h2 {
   font-size: 19px;
   font-weight: normal;
