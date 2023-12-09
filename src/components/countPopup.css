@@ -70,8 +70,6 @@
 }
 
 .countControls {
-  max-height: 50px;
-  height: 20%;
   padding: 10px;
   display: flex;
   justify-content: space-between;

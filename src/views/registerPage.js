@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import './registerPage.css';
 
 
-function RegisterPage() {
+function RegisterPage(props) {
+  const [fontSize] = useOutletContext();
   const navigate = useNavigate();
 
   const testPostcodes = {
@@ -71,30 +72,35 @@ function RegisterPage() {
       setPostcodeError("Please enter your postcode");
       errors = true;
     }
-
-    if (displayAddress) {
-      if (addressLine1.length === 0) {
+    
+    if (addressLine1.length === 0) {
+      if (displayAddress) {
         setAddressLine1Error("Please enter the first line of your address");
-        errors = true;
+      } else if (postcodeText.length > 0) {
+        setPostcodeError("Please select a postcode and address");
       }
+      errors = true;
+    }
   
-      if (city.length === 0) {
+    if (city.length === 0) {
+      if (displayAddress) {
         setCityError("Please enter your city");
-        errors = true;
+      } else if (postcodeText.length > 0) {
+        setPostcodeError("Please select a postcode and address");
       }
+      errors = true;
     }
 
     if (password.length === 0) {
       setPasswordError("Please a enter password");
       errors = true;
-    }
-
-    if (confirmPass.length === 0) {
+    } else if (password.length < 8) {
+      setPasswordError("Password must be at least 8 characters");
+      errors = true;
+    } else if (confirmPass.length === 0) {
       setConfirmPassError("Please confirm your password");
       errors = true;
-    }
-
-    if (confirmPass.length > 0 && password.length > 0 && password !== confirmPass) {
+    } else if (confirmPass.length > 0 && password.length > 0 && password !== confirmPass) {
       setConfirmPassError("Passwords do not match");
       errors = true;
     }
@@ -159,13 +165,13 @@ function RegisterPage() {
         <h1>Register to participate</h1>
 
           <div className="inputGroup">
-            <h2>Full name</h2>
+            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Full name</h2>
             <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
             <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
           </div>
 
           <div className="inputGroup">
-            <h2>Email address</h2>
+            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Email address</h2>
             <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
             <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
           </div>
@@ -174,12 +180,12 @@ function RegisterPage() {
             displayAddress ?
             <>
               <div className="inputGroup">
-                <h2>Address line 1</h2>
+                <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Address line 1</h2>
                 <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
                 <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
               </div>
               <div className="inputGroup">
-                <h2>City</h2>
+                <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>City</h2>
                 <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
                 <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
               </div>
@@ -190,7 +196,7 @@ function RegisterPage() {
 
           <div className="inputGroupPostcode">
             <div className="header">
-              <h2>Postcode</h2>
+              <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Postcode</h2>
               { !displayAddress && <button className="enterManuallyButton" onClick={enterAddressManually}>Enter address manually</button> }
             </div>
             <input type="text" className="input" onChange={postcodeChange} value={postcodeText}/>
@@ -206,13 +212,13 @@ function RegisterPage() {
             }
           </div>
           <div className="inputGroup">
-          <h2>Password</h2>
+          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Password</h2>
           <input type="password" className="input" onChange={(e) => setPassword(e.target.value)} value={password}/>
           <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{passwordError}</p>
         </div>
 
         <div className="inputGroup">
-          <h2>Confirm password</h2>
+          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Confirm password</h2>
           <input type="password" className="input" onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass}/>
           <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{confirmPassError}</p>
         </div>

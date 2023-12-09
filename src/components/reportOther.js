@@ -52,7 +52,7 @@ function ReportOther(props) {
           <h1>Report another bird</h1>
           <h3>If you spot a bird that isn't on the list, you can add it here.</h3>
           <div className="inputGroup">
-            <h2>Bird name</h2>
+            <h2 style={{fontSize: Math.ceil(props.fontSize * 1.2)}}>Bird name</h2>
             <input type="text" className="input" onChange={(e) => setBirdName(e.target.value)} value={birdName}/>
             { nameError && <p class={`errorMessage ${vibrateAnimation ? "vibrate" : ""}`}>{nameError}</p> }
           </div>

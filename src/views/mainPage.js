@@ -4,9 +4,12 @@ import BirdTile from '../components/birdTile';
 import React, { useState } from 'react';
 import CountPopup from '../components/countPopup';
 import ReportOther from '../components/reportOther';
+import { useOutletContext } from 'react-router-dom';
 
 
 function MainPage() {
+  const [fontSize] = useOutletContext();
+
   const [birds, setBirds] = useState({
     blackbird: { displayName: "Blackbird", count: 0,
     imageMale: "bird_images/new/blackbird_male.webp",
@@ -123,7 +126,7 @@ function MainPage() {
       <div className="mainPage">
         <div className="topBar">
           <input onClick={reportOtherPress} className="App-button-primary" type="button" value="Report another bird"/>
-          <input onChange={searchHandler} className="searchBar" type="text" placeholder="Search"/>
+          <input style={{fontSize: Math.ceil(fontSize * 0.9)}} onChange={searchHandler} className="searchBar" type="text" placeholder="Search"/>
         </div>
         <div className="birdGrid">
           { Object.entries(filteredBirds).map( ([key, value]) =>
@@ -136,7 +139,7 @@ function MainPage() {
       </div>
 
       { editingBird != null && <CountPopup birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
-      { reportOther && <ReportOther birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
+      { reportOther && <ReportOther fontSize={fontSize} birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
     </div>
   );
 }

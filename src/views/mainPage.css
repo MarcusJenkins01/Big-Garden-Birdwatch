@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: rgb(236, 236, 236);
+  background-color: var(--main_bg);
 }
 
 .mainPage {
@@ -31,19 +31,22 @@
 .topBar {
   box-sizing: border-box;
   width: 100%;
-  background-color: white;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--main_top_bar_bg);
+  box-shadow: 0 0 10px 0 var(--shadow1);
   padding: 16px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
 }
 
 .controls {
   box-sizing: border-box;
   width: 100%;
-  background-color: white;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--main_controls_bg);
+  box-shadow: 0 0 10px 0 var(--shadow1);
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -52,7 +55,6 @@
 
 .searchBar {
   font-family: 'Poppins';
-  margin-left: 16px;
   flex-grow: 1;
   width: 100%;
   outline: none;
@@ -61,4 +63,5 @@
   box-sizing: border-box;
   padding: 4px 8px;
   max-width: 300px;
+  min-width: 10em;
 }
