@@ -1,6 +1,7 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import './registerPage.css';
+import './forms.css';
 
 
 function RegisterPage(props) {
@@ -158,8 +159,8 @@ function RegisterPage(props) {
   }
 
   return (
-    <div className="registerPageContainer">
-      <div className="registerFormContainer">
+    <div className="formPageContainer">
+      <div className="formContainer">
       
       <div>
         <h1>Register to participate</h1>
@@ -223,8 +224,8 @@ function RegisterPage(props) {
           <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{confirmPassError}</p>
         </div>
       </div>
-        <div className="registerButtons">
-          <button className="registerButton" onClick={register}>Register</button>
+        <div className="formButtons">
+          <button className="formSubmitButton" onClick={register}>Register</button>
         </div>
       </div>
     </div>

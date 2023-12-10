@@ -75,7 +75,10 @@
 
 .birdCount {
   background-color: var(--tile_count_bg);
-  color:white;
+  color: var(--text_light);
+  border: var(--tile_count_border_sz) solid var(--tile_count_border);
+  border-right: none;
+  border-bottom: none;
   padding: 0 12px;
   display: flex;
   align-items: center;

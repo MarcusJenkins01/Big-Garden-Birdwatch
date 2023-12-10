@@ -1,0 +1,121 @@
+.formPageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 52px);
+  /* background-color: #3aaf92; */
+  background-color: var(--main_bg);
+  box-sizing: border-box;
+  padding: 80px 16px;
+}
+
+.formContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  border-radius: var(--form_border_radius);
+  background-color: var(--form_bg);
+  box-shadow: 0 2px 5px 5px var(--form_shadow);
+  padding: 30px;
+  box-sizing: border-box;
+  border: var(--form_border_sz) solid var(--form_border);
+}
+
+@media only screen and (max-width: 650px) {
+  .formContainer {
+    padding: 16px 16px;
+  }
+
+  .formContainer {
+    padding: 24px;
+  }
+}
+
+.formContainer h1 {
+  color: var(--form_title);
+  font-size: 1.4em;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.input {
+  color: var(--input_color);
+  font-family: 'Poppins';
+  font-size: 1em;
+  border-radius: var(--input_border_radius);
+  outline: none;
+  background-color: var(--input_bg);
+  border: var(--input_border_sz) solid var(--input_border);
+  padding: 7px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.inputsContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.inputGroup {
+  margin-bottom: 25px;
+}
+
+.inputGroup p {
+  font-size: 1em;
+  margin: 0;
+}
+
+.inputGroup h2 {
+  font-weight: normal;
+  margin-block: 0;
+  margin-bottom: 5px;
+}
+
+.formButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.formSubmitButton {
+  margin-top: 25px;
+  cursor: pointer;
+  color: var(--form_submit_color);
+  font-size: 1em;
+  font-family: 'Poppins';
+  padding: 8px 25px;
+  background-color: var(--form_submit_bg);
+  border-radius: var(--button_border_radius);
+  border: none;
+  outline: none;
+  box-shadow: 0 0 3px 0 var(--form_submit_shadow);
+  border: var(--form_submit_border_sz) solid var(--form_submit_border);
+}
+
+.inputGroup > p, .inputGroupPostcode p {
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.errorMessage {
+  color: var(--error_message);
+}
+
+@keyframes pulse {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.errorMessage.pulse {
+  animation: pulse 0.3s ease-in-out;
+}

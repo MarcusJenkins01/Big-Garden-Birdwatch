@@ -1,0 +1,74 @@
+.popupBackground {
+  box-sizing: border-box;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  top: 52px;
+  width: 100vw;
+  height: calc(100vh - 52px);
+  background-color: var(--popup_background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.popup {
+  max-height: 80vh;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--popup_bg);
+  
+  border: var(--popup_border_sz) solid var(--popup_border);
+  border-radius: 5px;
+  justify-content: space-between;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.popup h1 {
+  color: var(--popup_h1);
+  font-size: 1.4em;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
+  padding: 16px;
+  padding-bottom: 0;
+}
+
+.popup h3 {
+  color: var(--input_title);
+  font-size: 1em;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.popup .submitButton {
+  cursor: pointer;
+  color: var(--popup_positive_color);
+  font-size: 1em;
+  font-family: 'Poppins';
+  padding: 8px 25px;
+  background-color: var(--popup_positive_bg);
+  border-radius: 100px;
+  outline: none;
+  box-shadow: 0 0 3px 0 var(--popup_positive_shadow);
+  border: var(--popup_positive_border_sz) solid var(--popup_positive_border)
+}
+
+.popup .cancelButton {
+  cursor: pointer;
+  color: var(--popup_negative_color);
+  font-size: 1em;
+  font-family: 'Poppins';
+  padding: 8px 25px;
+  background-color: var(--popup_negative_bg);
+  border-radius: 100px;
+  border: var(--popup_negative_border_sz) solid var(--popup_negative_border);
+  outline: none;
+}

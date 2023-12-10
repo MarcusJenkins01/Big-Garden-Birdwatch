@@ -50,13 +50,13 @@ body {
   font-family: 'Poppins';
   outline: none;
   border: none;
-  background-color: var(--report_other);
+  background-color: var(--report_button_bg);
   color: var(--text_light);
   padding: 6px 15px;
-  border-radius: 500px;
+  border-radius: var(--button_border_radius);
   font-size: 1em;
   cursor: pointer;
-  border: 1px solid var(--report_other_border);
+  border: var(--report_button_border_sz) solid var(--report_button_border);
 }
 
 .App-button-success {
@@ -66,10 +66,10 @@ body {
   background-color: var(--success_green);
   color: var(--text_dark2);
   padding: 6px 15px;
-  border-radius: 500px;
+  border-radius: var(--button_border_radius);
   font-size: 1em;
   cursor: pointer;
-  border: 1px solid var(--success_green_border);
+  border: var(--success_green_border_sz) solid var(--success_green_border);
 }
 
 .App-button-neutral {
@@ -79,10 +79,10 @@ body {
   background-color: var(--grey1);
   color: var(--text_dark2);
   padding: 6px 15px;
-  border-radius: 500px;
+  border-radius: var(--button_border_radius);
   font-size: 1em;
   cursor: pointer;
-  border: 1px solid var(--negative_grey_border);
+  border: var(--quit_border_sz) solid var(--negative_grey_border);
 }
 
 ::-webkit-scrollbar {
@@ -91,17 +91,17 @@ body {
 
 ::-webkit-scrollbar-track {
   background: var(--scrollbar_track);
-  border-radius: 100px;
-  border: 1px solid var(--shadow2);
+  border-radius: var(--button_border_radius);
+  border: var(--scrollbar_track_border_sz) solid var(--scrollbar_track_border);
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 100px;
+  border-radius: var(--button_border_radius);
   background: var(--scrollbar_thumb_bg);
   border: 1px solid var(--shadow1);
   box-shadow: 0 0 2px 0 var(--shadow2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar_thumb);
+  background: var(--scrollbar_thumb_hover);
 }

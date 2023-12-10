@@ -1,46 +1,39 @@
-.accessibilityBackground {
-  box-sizing: border-box;
-  padding: 20px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+.accessibilityContent {
+  padding: 16px;
+}
+
+.accessibilityContent .controlsContainer {
+  margin-bottom: 16px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
   flex-direction: column;
-  z-index: 10000;
+  flex-wrap: wrap;
+  gap: 0.7em;
 }
 
-.accessibility {
-  max-height: 80vh;
-  position: relative;
-  box-sizing: border-box;
+.controlsContainer .fontButtons {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: white;
-  border-radius: 5px;
-  justify-content: space-between;
-  max-width: 600px;
-  overflow: hidden;
-  padding: 24px;
+  justify-content: flex-start;
+  gap: 0.2em;
 }
 
-.accessibility .controlsContainer {
-  
+.controlsContainer .contrastButtons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.2em;
 }
 
-.accessibility h1 {
-  color: rgb(50, 50, 50);
-  font-size: 1.3em;
-  font-weight: normal;
-  margin-block: 0;
-  margin: 0;
-  margin-bottom: 10px;
+.controlsContainer button {
+  color: #333;
+  font-weight: bolder;
+  font-size: 1em;
+  padding: 0.4em 0.9em;
+  background-color: rgb(233, 233, 233);
+  outline: none;
+  border: 1px solid #222;
+  border-radius: 1000px;
 }
+
 
 .saveButtons {
   display: flex;
@@ -48,29 +41,4 @@
   justify-content: space-between;
   gap: 16px;
   flex-wrap: nowrap;
-}
-
-.saveButtons > .cancelButton {
-  cursor: pointer;
-  color: rgb(51, 51, 51);
-  font-size: 1em;
-  font-family: 'Poppins';
-  padding: 8px 25px;
-  background-color: #e2e2e2;
-  border-radius: 100px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  outline: none;
-}
-
-.saveButtons > .saveButton {
-  cursor: pointer;
-  color: white;
-  font-size: 1em;
-  font-family: 'Poppins';
-  padding: 8px 25px;
-  background-color: #3a98af;
-  border-radius: 100px;
-  border: none;
-  outline: none;
-  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
 }

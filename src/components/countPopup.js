@@ -1,4 +1,5 @@
 import './countPopup.css';
+import './popup.css';
 import { useEffect, useRef, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
@@ -63,8 +64,8 @@ function CountPopup(props) {
   }, [ props.closePopup ]);
 
   return (
-    <div className="countPopupBackground">
-      <div className="countPopup" ref={ref}>
+    <div className="popupBackground">
+      <div className="popup" ref={ref}>
         <div className="birdImageContainer">
           <img className="birdImage" src={imageSrc}/>
         </div>
