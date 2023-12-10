@@ -42,24 +42,32 @@ function Accessibility(props) {
   return (
     <div className="popupBackground">
       <div className="popup">
-        <h1>Accessibility Settings</h1>
-        <div className="accessibilityContent">
-          <div className="controlsContainer">
-            <div className="fontButtons">
-              <button onClick={() => selectFontSize("small")}>Small</button>
-              <button onClick={() => selectFontSize("regular")}>Regular</button>
-              <button onClick={() => selectFontSize("large")}>Large</button>
+        <div className="accessibilityContainer">
+          <h1>Accessibility Settings</h1>
+          <div className="accessibilityContent">
+            <div className="controlsContainer">
+              <div className="accessibilitySetting">
+                <div className="labelText">Font size</div>
+                <div className="buttonsContainer">
+                  <button onClick={() => selectFontSize("small")}>Small</button>
+                  <button onClick={() => selectFontSize("regular")}>Regular</button>
+                  <button onClick={() => selectFontSize("large")}>Large</button>
+                </div>
+              </div>
+
+              <div className="accessibilitySetting">
+                <div className="labelText">High contrast</div>
+                <div className="buttonsContainer">
+                  <button onClick={() => setTheme("normal")}>Disable</button>
+                  <button onClick={() => setTheme("high_contrast")}>Enable</button>
+                </div>
+              </div>
             </div>
 
-            <div className="contrastButtons">
-              <button onClick={() => setTheme("normal")}>Default</button>
-              <button onClick={() => setTheme("high_contrast")}>High contrast</button>
+            <div className="saveButtons">
+              <button className="cancelButton" onClick={cancel}>Cancel</button>
+              <button className="submitButton" onClick={saveOptions}>Save</button>
             </div>
-          </div>
-
-          <div className="saveButtons">
-            <button className="cancelButton" onClick={cancel}>Cancel</button>
-            <button className="submitButton" onClick={saveOptions}>Save</button>
           </div>
         </div>
       </div>

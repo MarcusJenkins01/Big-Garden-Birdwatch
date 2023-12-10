@@ -1,26 +1,32 @@
+.accessibilityContainer {
+  padding: 5px;
+}
+
 .accessibilityContent {
   padding: 16px;
 }
 
 .accessibilityContent .controlsContainer {
-  margin-bottom: 16px;
+  margin-bottom: 1.8em;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 0.7em;
+  gap: 1.2em;
 }
 
-.controlsContainer .fontButtons {
+.controlsContainer .accessibilitySetting {
   display: flex;
   justify-content: flex-start;
-  gap: 0.2em;
+  flex-direction: column;
+  gap: 0.4em;
 }
 
-.controlsContainer .contrastButtons {
+.accessibilitySetting .buttonsContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 0.2em;
+  gap: 0.3em;
 }
 
 .controlsContainer button {
@@ -34,11 +40,18 @@
   border-radius: 1000px;
 }
 
-
 .saveButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: nowrap;
+}
+
+.controlsContainer .labelText {
+  color: var(--input_title);
+  font-size: 1em;
+  font-weight: normal;
+  margin-block: 0;
+  margin: 0;
 }
