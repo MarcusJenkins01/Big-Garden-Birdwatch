@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import RegisterPage from "./views/registerPage";
 import MainPage from "./views/mainPage";
+import LoginPage from "./views/loginPage";
+import BeginPage from "./views/beginPage";
 
 export default function RoutedApp() {
   return (
@@ -10,6 +12,8 @@ export default function RoutedApp() {
       <Routes>
         <Route exact path="/" element={<App />}>
           <Route index element={<RegisterPage />} />
+          <Route exact path="begin" element={<BeginPage />} />
+          <Route exact path="login" element={<LoginPage />} />
           <Route exact path="main" element={<MainPage />} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>

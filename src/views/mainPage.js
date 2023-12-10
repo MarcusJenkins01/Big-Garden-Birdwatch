@@ -4,10 +4,11 @@ import BirdTile from '../components/birdTile';
 import React, { useState } from 'react';
 import CountPopup from '../components/countPopup';
 import ReportOther from '../components/reportOther';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, useNavigate } from 'react-router-dom';
 
 
 function MainPage(props) {
+  const navigate = useNavigate();
   const [fontSize, headerHeight] = useOutletContext();
 
   const [birds, setBirds] = useState({
@@ -121,6 +122,10 @@ function MainPage(props) {
       return filtered;
   }, {});
 
+  const quit = () => {
+    navigate("/begin");
+  }
+
   return (
     <div className="mainPageContainer">
       <div className="mainPage" style={{height: `calc(100vh - ${headerHeight}px)`}}>
@@ -133,7 +138,7 @@ function MainPage(props) {
           <BirdTile key={key} bird={value} onClick={() => tilePressed(key)}/> ) }
         </div>
         <div className="controls">
-          <input className="App-button-neutral" type="button" value="Quit"/>
+          <input className="App-button-neutral" type="button" onClick={quit} value="Quit"/>
           <input className="App-button-success" type="button" value="Finish"/>
         </div>
       </div>

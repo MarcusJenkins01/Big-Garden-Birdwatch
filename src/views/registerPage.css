@@ -1,4 +1,4 @@
-.inputGroup h2, .inputGroupPostcode h2 {
+.inputGroupPostcode h2 {
   font-weight: normal;
   margin-block: 0;
   margin-bottom: 5px;
@@ -21,7 +21,7 @@
   font-size: 1em;
   background-color: var(--manual_enter_bg);
   border: var(--manual_enter_border_sz) solid var(--manual_enter_border);
-  border-radius: var(--button_border_radius);
+  border-radius: var(--manual_enter_border_radius);
   font-family: 'Poppins';
   padding: 3px 16px;
   margin-bottom: 5px;

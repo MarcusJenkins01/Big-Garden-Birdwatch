@@ -26,6 +26,10 @@
 }
 
 @media only screen and (max-width: 650px) {
+  .formPageContainer {
+    padding: 16px;
+  }
+
   .formContainer {
     padding: 16px 16px;
   }

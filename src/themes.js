@@ -94,6 +94,7 @@ const ColorSchemes = {
     manual_enter_color: "#2c2c2c",
     manual_enter_border: "rgba(0, 0, 0, 0.15)",
     manual_enter_border_sz: "1px",
+    manual_enter_border_radius: "10px",
 
     address_list_color: "#333333",
     address_list_bg: "#f7f7f7",
@@ -196,6 +197,7 @@ const ColorSchemes = {
     manual_enter_color: "white",
     manual_enter_border: "white",
     manual_enter_border_sz: "2px",
+    manual_enter_border_radius: "0px",
 
     address_list_color: "white",
     address_list_bg: "blue",

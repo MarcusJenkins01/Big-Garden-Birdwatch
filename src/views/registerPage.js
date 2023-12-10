@@ -5,7 +5,7 @@ import './forms.css';
 
 
 function RegisterPage(props) {
-  const [fontSize] = useOutletContext();
+  const [fontSize, headerHeight] = useOutletContext();
   const navigate = useNavigate();
 
   const testPostcodes = {
@@ -107,7 +107,7 @@ function RegisterPage(props) {
     }
 
     if (!errors) {
-      navigate("/main");
+      navigate("/begin");
     } else {
       if (!pulseAnimation) {
         setPulseAnimation(true);
@@ -159,41 +159,41 @@ function RegisterPage(props) {
   }
 
   return (
-    <div className="formPageContainer">
+    <div className="formPageContainer" style={{minHeight: `calc(100vh - ${headerHeight}px)`}}>
       <div className="formContainer">
       
       <div>
         <h1>Register to participate</h1>
 
-          <div className="inputGroup">
-            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Full name</h2>
-            <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
-            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
-          </div>
+        <div className="inputGroup">
+          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Full name</h2>
+          <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
+          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
+        </div>
 
-          <div className="inputGroup">
-            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Email address</h2>
-            <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
-            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
-          </div>
+        <div className="inputGroup">
+          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Email address</h2>
+          <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
+          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
+        </div>
 
-          {
-            displayAddress ?
-            <>
-              <div className="inputGroup">
-                <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Address line 1</h2>
-                <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
-                <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
-              </div>
-              <div className="inputGroup">
-                <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>City</h2>
-                <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
-                <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
-              </div>
-            </>
-            :
-            <></>
-          }
+        {
+          displayAddress ?
+          <>
+            <div className="inputGroup">
+              <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Address line 1</h2>
+              <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
+              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
+            </div>
+            <div className="inputGroup">
+              <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>City</h2>
+              <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
+              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
+            </div>
+          </>
+          :
+          <></>
+        }
 
           <div className="inputGroupPostcode">
             <div className="header">
