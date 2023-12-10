@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import Accessibility from './components/accessibility';
 import { Outlet, Link } from "react-router-dom";
 import ColorSchemes from './themes'
 
-function App(props) {
+function App() {
+  const [headerHeight, setHeaderHeight] = useState(0);
   const [fontSize, setFontSize] = useState(18);
   const [accessibilityOptions, setAccessibilityOptions] = useState(false);
+  const headerRef = useRef(null);
 
   const setTheme = (theme) => {
     const colors = ColorSchemes[theme];
@@ -55,9 +57,21 @@ function App(props) {
     setTheme(colourScheme);
   }, []);
 
+  useEffect(() => {
+    
+
+    if (headerRef.current) {
+      const resizeObserver = new ResizeObserver(() => {
+        const headerHeight = headerRef.current.offsetHeight;
+        setHeaderHeight(headerHeight);
+      });
+      resizeObserver.observe(headerRef.current);
+    }
+  }, []);
+
   return (
     <div className="App" style={{ fontSize: `${fontSize}px` }}>
-      <header className="App-header">
+      <header className="App-header" ref={headerRef}>
         <div className="logoContainer">
           <img className="App-logo" src="/RSPB_logo.png"/>
           <div className="App-title">The Big Garden Birdwatch</div>
@@ -68,12 +82,12 @@ function App(props) {
         </div>
 
         <div className="accessibilityTools">
-          <button onClick={accessibilityPressed}>Accessibility</button>
+          <button className="accessibilityButton" onClick={accessibilityPressed}>Accessibility</button>
         </div>
       </header>
 
       <main role="main" className="App-content">
-        <Outlet context={[fontSize]}/>
+        <Outlet context={[fontSize, headerHeight]}/>
         { accessibilityOptions && <Accessibility
           previewFontSize={setFontSize}
           changeFontSize={changeFontSize}

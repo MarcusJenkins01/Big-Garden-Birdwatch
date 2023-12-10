@@ -11,9 +11,7 @@
   width: 100%;
   flex-direction: column;
   flex-wrap: nowrap;
-  max-height: calc(100vh - 52px);
   align-items: center;
-  height: calc(100vh - 52px);
 }
 
 .birdGrid {

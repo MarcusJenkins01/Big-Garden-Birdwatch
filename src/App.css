@@ -85,6 +85,19 @@ body {
   border: var(--quit_border_sz) solid var(--negative_grey_border);
 }
 
+.accessibilityButton {
+  font-family: 'Poppins';
+  outline: none;
+  border: none;
+  background-color: var(--report_button_bg);
+  color: var(--text_light);
+  padding: 6px 15px;
+  border-radius: var(--button_border_radius);
+  font-size: 1em;
+  cursor: pointer;
+  border: var(--report_button_border_sz) solid var(--report_button_border);
+}
+
 ::-webkit-scrollbar {
   width: 12px;
 }

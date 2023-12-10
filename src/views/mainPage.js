@@ -7,8 +7,8 @@ import ReportOther from '../components/reportOther';
 import { useOutletContext } from 'react-router-dom';
 
 
-function MainPage() {
-  const [fontSize] = useOutletContext();
+function MainPage(props) {
+  const [fontSize, headerHeight] = useOutletContext();
 
   const [birds, setBirds] = useState({
     blackbird: { displayName: "Blackbird", count: 0,
@@ -123,7 +123,7 @@ function MainPage() {
 
   return (
     <div className="mainPageContainer">
-      <div className="mainPage">
+      <div className="mainPage" style={{height: `calc(100vh - ${headerHeight}px)`}}>
         <div className="topBar">
           <input onClick={reportOtherPress} className="App-button-primary" type="button" value="Report another bird"/>
           <input style={{fontSize: Math.ceil(fontSize * 0.9)}} onChange={searchHandler} className="searchBar" type="text" placeholder="Search"/>
