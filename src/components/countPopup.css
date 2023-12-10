@@ -1,12 +1,18 @@
 .birdImageContainer {
   overflow: hidden;
+  height: 45vh;
+  position: relative;
 }
 
 .birdImage {
   width: 100%;
-  position: relative;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.countPopupContent {
+  overflow-y: auto;
 }
 
 .sexControls {
@@ -25,7 +31,7 @@
   outline: none;
 }
 
-.sexControls > button.selected {
+.sexControls button.selected {
   background-color: var(--count_sc_sel_bg);
   color: var(--count_sc_sel_color);
 }

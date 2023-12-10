@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
 
-
 function CountPopup(props) {
   var birds = {...props.birds}
 
   const [popAnimation, setPopAnimation] = useState(false);
   const [deniedAnimation, setDeniedAnimation] = useState(false);
-  
+  const [imageWidth, setImageWidth] = useState(0);
+
   var bird = props.birds[props.birdKey];
   var hasSex = bird.imageMale && bird.imageFemale;
   const [sex, setSex] = useState("m");
@@ -63,20 +63,35 @@ function CountPopup(props) {
     };
   }, [ props.closePopup ]);
 
+  const imageRef = useRef(null);
+  useEffect(() => {
+    if (imageRef.current) {
+      const resizeObserver = new ResizeObserver(() => {
+        if (imageRef.current) {
+          const width = imageRef.current.offsetWidth;
+          setImageWidth(width);
+        }
+      });
+      resizeObserver.observe(imageRef.current);
+    }
+  }, []);
+
   return (
-    <div className="popupBackground">
+    <div className="popupBackground" style={{maxHeight: `calc(100vh - ${props.headerHeight}px)`, top: `${props.headerHeight}px`}}>
       <div className="popup" ref={ref}>
-        <div className="birdImageContainer">
-          <img className="birdImage" src={imageSrc}/>
-        </div>
-        { hasSex ?
-          <div className="sexControls">
-              <button className={sex === "m" ? "selected" : ""} onClick={() => setSex("m")}>MALE</button>
-              <button className={sex === "f" ? "selected" : ""} onClick={() => setSex("f")}>FEMALE</button>
+        <div className="countPopupContent">
+          <div className="birdImageContainer" ref={imageRef} style={{maxHeight: Math.floor(imageWidth * 0.75), minHeight: Math.floor(imageWidth * 0.55)}}>
+            <img className="birdImage" src={imageSrc}/>
           </div>
-        : <></> }
-        <h1>{bird.displayName}</h1>
-        <div className="birdDescription">{bird.description}</div>
+          { hasSex ?
+            <div className="sexControls">
+                <button className={sex === "m" ? "selected" : ""} onClick={() => setSex("m")}>MALE</button>
+                <button className={sex === "f" ? "selected" : ""} onClick={() => setSex("f")}>FEMALE</button>
+            </div>
+          : <></> }
+          <h1>{bird.displayName}</h1>
+          <div className="birdDescription">{bird.description}</div>
+        </div>
         
         <div className="countControls">
           <button className="adjustButtons" onClick={minusClicked}>

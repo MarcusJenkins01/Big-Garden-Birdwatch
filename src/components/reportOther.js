@@ -2,6 +2,7 @@ import './reportOther.css';
 import '../views/forms.css';
 import '../components/popup.css';
 import { useEffect, useRef, useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 
 function ReportOther(props) {
@@ -49,7 +50,7 @@ function ReportOther(props) {
   }, [ props.closePopup ]);
 
   return (
-    <div className="popupBackground">
+    <div className="popupBackground" style={{height: `calc(100vh - ${props.headerHeight}px)`, top: `${props.headerHeight}px`}}>
       <div className="popup" ref={ref}>
         <div className="reportOtherContainer">
           <h1>Report another bird</h1>

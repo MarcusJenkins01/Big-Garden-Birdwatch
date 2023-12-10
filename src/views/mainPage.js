@@ -138,8 +138,8 @@ function MainPage(props) {
         </div>
       </div>
 
-      { editingBird != null && <CountPopup birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
-      { reportOther && <ReportOther fontSize={fontSize} birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
+      { editingBird != null && <CountPopup headerHeight={headerHeight} birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
+      { reportOther && <ReportOther headerHeight={headerHeight} fontSize={fontSize} birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
     </div>
   );
 }

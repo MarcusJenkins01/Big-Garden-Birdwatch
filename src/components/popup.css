@@ -4,13 +4,14 @@
   position: absolute;
   left: 0;
   top: 52px;
-  width: 100vw;
+  width: 100%;
   height: calc(100vh - 52px);
   background-color: var(--popup_background);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .popup {

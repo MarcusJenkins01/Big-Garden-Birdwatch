@@ -58,12 +58,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    
-
     if (headerRef.current) {
       const resizeObserver = new ResizeObserver(() => {
-        const headerHeight = headerRef.current.offsetHeight;
-        setHeaderHeight(headerHeight);
+        if (headerRef.current) {
+          const headerHeight = headerRef.current.offsetHeight;
+          setHeaderHeight(headerHeight);
+        }
       });
       resizeObserver.observe(headerRef.current);
     }
@@ -94,6 +94,7 @@ function App() {
           previewTheme={setTheme}
           changeTheme={changeTheme}
           fontSize={fontSize}
+          headerHeight={headerHeight}
           closePopup={() => setAccessibilityOptions(false)}/> }
       </main>
     </div>

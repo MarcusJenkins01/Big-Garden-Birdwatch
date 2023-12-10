@@ -40,7 +40,7 @@ function Accessibility(props) {
   }
 
   return (
-    <div className="popupBackground">
+    <div className="popupBackground" style={{height: `calc(100vh - ${props.headerHeight}px)`, top: `${props.headerHeight}px`}}>
       <div className="popup">
         <div className="accessibilityContainer">
           <h1>Accessibility Settings</h1>
