@@ -19,6 +19,7 @@
 }
 
 .sexButtons > button {
+  cursor: pointer;
   padding: 0 8px;
   font-size: 1em;
   font-family: 'Poppins';
@@ -35,6 +36,7 @@
 }
 
 .sexButtons > button.greyed {
+  cursor: default;
   font-weight: normal;
   background-color: transparent;
   color: transparent;
