@@ -77,12 +77,15 @@ function App() {
           <div className="App-title">The Big Garden Birdwatch</div>
         </div>
 
-        <div className="navigationContainer">
+        <div className="headerRightContainer">
+          <div className="navigationContainer">
+            <Link to="/login">Login</Link>
+            <Link to="/">Register</Link>
+          </div>
 
-        </div>
-
-        <div className="accessibilityTools">
-          <button className="accessibilityButton" onClick={accessibilityPressed}>Accessibility</button>
+          <div className="accessibilityTools">
+            <button className="accessibilityButton" onClick={accessibilityPressed}>Accessibility</button>
+          </div>
         </div>
       </header>
 
