@@ -74,8 +74,11 @@ function App() {
 
     // Set font
     var dyslexicFont = localStorage.getItem("dyslexicFont");
+    console.log(dyslexicFont)
     if (typeof dyslexicFont === 'undefined' || dyslexicFont === 'undefined' || dyslexicFont === null) {
       dyslexicFont = false;
+    } else {
+      dyslexicFont = JSON.parse(dyslexicFont);
     }
     setDyslexicFont(dyslexicFont);
   }, []);
