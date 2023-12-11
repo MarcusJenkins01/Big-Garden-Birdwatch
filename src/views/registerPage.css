@@ -22,7 +22,7 @@
   background-color: var(--manual_enter_bg);
   border: var(--manual_enter_border_sz) solid var(--manual_enter_border);
   border-radius: var(--manual_enter_border_radius);
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   padding: 3px 16px;
   margin-bottom: 5px;
   color: var(--manual_enter_color);

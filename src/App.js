@@ -23,6 +23,19 @@ function App() {
     });
   }
 
+  const setDyslexicFont = (enabled) => {
+    const root = document.documentElement;
+    if (enabled === true) {
+      root.style.setProperty(`--font_family`, "'OpenDyslexic'");
+    } else {
+      root.style.setProperty(`--font_family`, "'Poppins'");
+    }
+  }
+  const changeDyslexicFont = (enabled) => {
+    localStorage.setItem("dyslexicFont", enabled);
+    setDyslexicFont(enabled);
+  }
+
   const changeFontSize = (newSize) => {
     if (typeof newSize === 'undefined' || newSize === 'undefined' || newSize === null) {
       newSize = 18;
@@ -45,17 +58,26 @@ function App() {
   }
 
   useEffect(() => {
+    // Set font size
     var savedFontSize = localStorage.getItem("fontSize");
     if (typeof savedFontSize === 'undefined' || savedFontSize === 'undefined' || savedFontSize === null) {
       savedFontSize = 18;
     }
     setFontSize(savedFontSize);
     
+    // Set colour scheme
     var colourScheme = localStorage.getItem("theme");
     if (!(colourScheme in ColorSchemes)) {
       colourScheme = "normal";
     }
     setTheme(colourScheme);
+
+    // Set font
+    var dyslexicFont = localStorage.getItem("dyslexicFont");
+    if (typeof dyslexicFont === 'undefined' || dyslexicFont === 'undefined' || dyslexicFont === null) {
+      dyslexicFont = false;
+    }
+    setDyslexicFont(dyslexicFont);
   }, []);
 
   useEffect(() => {
@@ -126,6 +148,8 @@ function App() {
           changeFontSize={changeFontSize}
           previewTheme={setTheme}
           changeTheme={changeTheme}
+          previewDyslexic={setDyslexicFont}
+          changeDyslexic={changeDyslexicFont}
           fontSize={fontSize}
           headerHeight={headerHeight}
           closePopup={() => setAccessibilityOptions(false)}/> }

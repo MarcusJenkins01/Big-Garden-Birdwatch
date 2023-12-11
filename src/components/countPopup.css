@@ -25,7 +25,7 @@
   cursor: pointer;
   padding: 4px 15px;
   font-size: 1em;
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   background-color: var(--count_sc_bg);
   color: var(--count_sc_color);
   border: none;
@@ -109,7 +109,7 @@
   cursor: pointer;
   color: var(--popup_negative_color);
   font-size: 1em;
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   padding: 8px 25px;
   background-color: var(--popup_negative_bg);
   border-radius: 100px;

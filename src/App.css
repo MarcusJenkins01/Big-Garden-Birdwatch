@@ -2,9 +2,14 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: local('OpenDyslexic'), url(../public/resources/OpenDyslexic3-Regular.ttf) format('truetype');
+}
+
 .App {
   margin: 0;
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   color: var(--text_dark);
 }
 
@@ -56,7 +61,7 @@ body {
 }
 
 .App-button-primary {
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   border: none;
   background-color: var(--report_button_bg);
   color: var(--text_light);
@@ -68,7 +73,7 @@ body {
 }
 
 .App-button-success {
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   border: none;
   background-color: var(--success_green);
   color: var(--text_dark2);
@@ -80,7 +85,7 @@ body {
 }
 
 .App-button-neutral {
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   border: none;
   background-color: var(--grey1);
   color: var(--text_dark2);
@@ -161,7 +166,7 @@ body {
 }
 
 .accessibilityButton {
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   border: none;
   background-color: var(--report_button_bg);
   color: var(--text_light);

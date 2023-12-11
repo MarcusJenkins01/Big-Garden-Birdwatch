@@ -50,7 +50,7 @@
 
 .input {
   color: var(--input_color);
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   font-size: 1em;
   border-radius: var(--input_border_radius);
   background-color: var(--input_bg);
@@ -92,7 +92,7 @@
   cursor: pointer;
   color: var(--form_submit_color);
   font-size: 1em;
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   padding: 8px 25px;
   background-color: var(--form_submit_bg);
   border-radius: var(--button_border_radius);

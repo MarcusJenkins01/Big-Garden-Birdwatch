@@ -6,6 +6,7 @@ import { useState } from 'react';
 function Accessibility(props) {
   const [chosenFontSize, setChosenFontSize] = useState(props.fontSize);
   const [chosenTheme, setChosenTheme] = useState(null);
+  const [chosenDyslexic, setChosenDyslexic] = useState(null);
 
   const fontSizeSettings = {
     small: 16,
@@ -20,11 +21,16 @@ function Accessibility(props) {
       props.changeTheme(chosenTheme);
     }
 
+    if (chosenDyslexic !== null) {
+      props.changeDyslexic(chosenDyslexic);
+    }
+
     props.closePopup();
   }
   const cancel = () => {
     props.changeFontSize(localStorage.getItem("fontSize"));
     props.changeTheme(localStorage.getItem("theme"));
+    props.changeDyslexic(localStorage.getItem("dyslexicFont"));
     props.closePopup();
   }
 
@@ -37,6 +43,11 @@ function Accessibility(props) {
   const setTheme = (setting) => {
     props.previewTheme(setting);
     setChosenTheme(setting);
+  }
+
+  const setDyslexicFont = (setting) => {
+    props.previewDyslexic(setting);
+    setChosenDyslexic(setting);
   }
 
   return (
@@ -60,6 +71,14 @@ function Accessibility(props) {
                 <div className="buttonsContainer">
                   <button onClick={() => setTheme("normal")}>Disable</button>
                   <button onClick={() => setTheme("high_contrast")}>Enable</button>
+                </div>
+              </div>
+
+              <div className="accessibilitySetting">
+                <div className="labelText">Dyslexic font</div>
+                <div className="buttonsContainer">
+                  <button onClick={() => setDyslexicFont(false)}>Disable</button>
+                  <button onClick={() => setDyslexicFont(true)}>Enable</button>
                 </div>
               </div>
             </div>

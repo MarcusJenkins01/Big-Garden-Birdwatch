@@ -22,7 +22,7 @@
   cursor: pointer;
   padding: 0 8px;
   font-size: 1em;
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   background-color: var(--tile_sex_bg);
   color: var(--text_dark1);
   border: none;

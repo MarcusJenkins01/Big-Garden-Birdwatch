@@ -57,7 +57,7 @@
 .searchBar {
   color: var(--search_color);
   background-color: var(--search_bg);
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   flex-grow: 1;
   width: 100%;
   border: var(--search_border_sz) solid var(--search_border);
@@ -70,5 +70,5 @@
 
 .searchBar::-webkit-input-placeholder {
   color: var(--search_placeholder);
-  font-family: 'Poppins';
+  font-family: var(--font_family);
 }
