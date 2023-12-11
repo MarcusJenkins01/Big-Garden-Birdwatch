@@ -30,7 +30,7 @@ function Accessibility(props) {
   const cancel = () => {
     props.changeFontSize(localStorage.getItem("fontSize"));
     props.changeTheme(localStorage.getItem("theme"));
-    props.changeDyslexic(localStorage.getItem("dyslexicFont"));
+    props.changeDyslexic(JSON.parse(localStorage.getItem("dyslexicFont")));
     props.closePopup();
   }
 
