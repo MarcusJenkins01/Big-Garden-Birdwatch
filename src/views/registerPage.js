@@ -1,11 +1,11 @@
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import './registerPage.css';
 import './forms.css';
 
 
 function RegisterPage(props) {
-  const [fontSize, headerHeight] = useOutletContext();
+  const [fontSize, headerHeight, showNotification] = useOutletContext();
   const navigate = useNavigate();
 
   const testPostcodes = {
@@ -107,7 +107,7 @@ function RegisterPage(props) {
     }
 
     if (!errors) {
-      navigate("/begin");
+      navigate("/begin", { state: { email: email, registered: true, logged_in: false } });
     } else {
       if (!pulseAnimation) {
         setPulseAnimation(true);
@@ -161,40 +161,38 @@ function RegisterPage(props) {
   return (
     <div className="formPageContainer" style={{minHeight: `calc(100vh - ${headerHeight}px)`}}>
       <div className="formContainer">
-      
-      <div>
-        <h1>Register to participate</h1>
+        <div>
+          <h1>Register to participate</h1>
 
-        <div className="inputGroup">
-          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Full name</h2>
-          <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
-          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
-        </div>
+          <div className="inputGroup">
+            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Full name</h2>
+            <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
+            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
+          </div>
 
-        <div className="inputGroup">
-          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Email address</h2>
-          <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
-          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
-        </div>
+          <div className="inputGroup">
+            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Email address</h2>
+            <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
+            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
+          </div>
 
-        {
-          displayAddress ?
-          <>
-            <div className="inputGroup">
-              <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Address line 1</h2>
-              <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
-              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
-            </div>
-            <div className="inputGroup">
-              <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>City</h2>
-              <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
-              <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
-            </div>
-          </>
-          :
-          <></>
-        }
-
+          {
+            displayAddress ?
+            <>
+              <div className="inputGroup">
+                <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Address line 1</h2>
+                <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
+                <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
+              </div>
+              <div className="inputGroup">
+                <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>City</h2>
+                <input type="text" className="input" onChange={(e) => setCity(e.target.value)} value={city}/>
+                <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{cityError}</p>
+              </div>
+            </>
+            :
+            <></>
+          }
           <div className="inputGroupPostcode">
             <div className="header">
               <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Postcode</h2>
@@ -212,20 +210,26 @@ function RegisterPage(props) {
               </div>
             }
           </div>
+
           <div className="inputGroup">
-          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Password</h2>
-          <input type="password" className="input" onChange={(e) => setPassword(e.target.value)} value={password}/>
-          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{passwordError}</p>
+            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Password</h2>
+            <input type="password" className="input" onChange={(e) => setPassword(e.target.value)} value={password}/>
+            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{passwordError}</p>
+          </div>
+
+          <div className="inputGroup">
+            <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Confirm password</h2>
+            <input type="password" className="input" onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass}/>
+            <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{confirmPassError}</p>
+          </div>
         </div>
 
-        <div className="inputGroup">
-          <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Confirm password</h2>
-          <input type="password" className="input" onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass}/>
-          <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{confirmPassError}</p>
-        </div>
-      </div>
         <div className="formButtons">
           <button className="formSubmitButton" onClick={register}>Register</button>
+        </div>
+
+        <div className="loginPrompt" style={{color: "var(--text_dark)"}}>
+          Already have an account? <Link style={{color: "var(--link_color)"}} to="/login">Login now</Link>
         </div>
       </div>
     </div>

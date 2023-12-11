@@ -60,7 +60,6 @@
   font-family: 'Poppins';
   flex-grow: 1;
   width: 100%;
-  outline: none;
   border: var(--search_border_sz) solid var(--search_border);
   border-radius: var(--search_border_radius);
   box-sizing: border-box;

@@ -34,7 +34,7 @@ function LoginPage(props) {
     }
 
     if (!errors) {
-      navigate("/begin");
+      navigate("/begin", { state: { email: email, registered: false, logged_in: true } });
     } else {
       if (!pulseAnimation) {
         setPulseAnimation(true);

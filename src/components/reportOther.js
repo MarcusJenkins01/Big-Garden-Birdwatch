@@ -20,6 +20,21 @@ function ReportOther(props) {
       return;
     }
 
+    var birdExists = false;
+    var birdNameCleaned = birdName.toLowerCase().replace(/\s/g, "");
+    Object.entries(birds).forEach(([k, v]) => {
+      if (v.displayName.toLowerCase().replace(/\s/g, "X") === birdNameCleaned) {
+        birdExists = true;
+      }
+    });
+
+    if (birdExists === true) {
+      setNameError("A bird with this name already exists");
+      setVibrateAnimation(true);
+      setTimeout(() => setVibrateAnimation(false), 300);
+      return;
+    }
+
     // Generate random key for new bird
     var randomRadixNum = Math.random().toString(36);
     var randomKey = "bird_" + randomRadixNum.substring(2, randomRadixNum.length);
@@ -34,6 +49,7 @@ function ReportOther(props) {
     setBirdName("");
     props.closePopup();
     props.setBirds(birds);
+    props.showNotification(`New bird "${birdName}" successfully added`, 5000);
   }
 
   const ref = useRef(null);
@@ -59,7 +75,7 @@ function ReportOther(props) {
             <div className="inputGroup">
               <h2 style={{fontSize: Math.ceil(props.fontSize * 1.2)}}>Bird name</h2>
               <input type="text" className="input" onChange={(e) => setBirdName(e.target.value)} value={birdName}/>
-              { nameError && <p class={`errorMessage ${vibrateAnimation ? "vibrate" : ""}`}>{nameError}</p> }
+              { nameError && <p className={`errorMessage ${vibrateAnimation ? "pulse" : ""}`}>{nameError}</p> }
             </div>
 
             <div className="reportOtherButtons">

@@ -9,7 +9,7 @@ import { useOutletContext, useNavigate } from 'react-router-dom';
 
 function MainPage(props) {
   const navigate = useNavigate();
-  const [fontSize, headerHeight] = useOutletContext();
+  const [fontSize, headerHeight, showNotification] = useOutletContext();
 
   const [birds, setBirds] = useState({
     blackbird: { displayName: "Blackbird", count: 0,
@@ -143,8 +143,8 @@ function MainPage(props) {
         </div>
       </div>
 
-      { editingBird != null && <CountPopup headerHeight={headerHeight} birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
-      { reportOther && <ReportOther headerHeight={headerHeight} fontSize={fontSize} birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
+      { editingBird != null && <CountPopup showNotification={showNotification} headerHeight={headerHeight} birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
+      { reportOther && <ReportOther showNotification={showNotification} headerHeight={headerHeight} fontSize={fontSize} birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
     </div>
   );
 }

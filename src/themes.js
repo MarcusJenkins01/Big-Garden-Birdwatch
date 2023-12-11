@@ -22,6 +22,13 @@ const ColorSchemes = {
     text_light: "white",
     shadow1: "rgba(0, 0, 0, 0.2)",
     shadow2: "rgba(0, 0, 0, 0.15)",
+    link_color: "blue",
+
+    notification_bg: "white",
+    notification_border: "transparent",
+    notification_border_sz: "0px",
+    notification_border_radius: "5px",
+    notification_color: "#333333",
 
     nav_color: "#333333",
     nav_bg: "transparent",
@@ -132,6 +139,13 @@ const ColorSchemes = {
     text_light: "white",
     shadow1: "transparent",
     shadow2: "transparent",
+    link_color: "yellow",
+
+    notification_bg: "black",
+    notification_border: "blue",
+    notification_border_sz: "3px",
+    notification_border_radius: "0px",
+    notification_color: "white",
 
     nav_color: "yellow",
     nav_bg: "black",

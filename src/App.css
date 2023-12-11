@@ -27,7 +27,7 @@ body {
 
 .headerRightContainer {
   display: flex;
-  gap: 1.5em;
+  gap: 0.5em;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
@@ -57,7 +57,6 @@ body {
 
 .App-button-primary {
   font-family: 'Poppins';
-  outline: none;
   border: none;
   background-color: var(--report_button_bg);
   color: var(--text_light);
@@ -70,7 +69,6 @@ body {
 
 .App-button-success {
   font-family: 'Poppins';
-  outline: none;
   border: none;
   background-color: var(--success_green);
   color: var(--text_dark2);
@@ -83,7 +81,6 @@ body {
 
 .App-button-neutral {
   font-family: 'Poppins';
-  outline: none;
   border: none;
   background-color: var(--grey1);
   color: var(--text_dark2);
@@ -94,9 +91,77 @@ body {
   border: var(--quit_border_sz) solid var(--negative_grey_border);
 }
 
+.notificationContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.notification {
+  pointer-events: all;
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--notification_bg);
+  box-shadow: 0 3px 5px 4px var(--form_shadow);
+  box-sizing: border-box;
+  width: 600px;
+  text-align: center;
+  max-width: calc(100% - 2em);
+  border: var(--notification_border_sz) solid var(--notification_border);
+  animation: notification-transition 0.5s ease-in-out;
+  border-radius: var(--notification_border_radius);
+}
+.notification .notificationTop {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0.25em;
+  align-items: center;
+}
+.notification .notificationText {
+  font-size: 1.1em;
+  color: var(--notification_color);
+  padding: 1em;
+  padding-top: 0;
+}
+.notification .timerText {
+  color: var(--text_dark);
+  padding: 0.5em;
+  font-size: 1em;
+}
+.notification .closeButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 1000px;
+  padding: 0.5em;
+  color: var(--text_dark2);
+  font-size: 1em;
+  box-sizing: border-box;
+}
+.notification.hide {
+  animation: notification-hide 0.5s ease-in-out;
+}
+@keyframes notification-transition {
+  from { transform: translate(-50%, 200%); }
+  to { transform: translate(-50%, 0); }
+}
+@keyframes notification-hide {
+  from { transform: translate(-50%, 0); }
+  to { transform: translate(-50%, 200%); }
+}
+
 .accessibilityButton {
   font-family: 'Poppins';
-  outline: none;
   border: none;
   background-color: var(--report_button_bg);
   color: var(--text_light);
@@ -111,6 +176,7 @@ body {
   display: flex;
   gap: 0.5em;
   flex-wrap: wrap;
+  margin-right: 1em;
 }
 .navigationContainer a {
   text-decoration: none;

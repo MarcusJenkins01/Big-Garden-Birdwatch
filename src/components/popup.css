@@ -73,3 +73,19 @@
   border: var(--popup_negative_border_sz) solid var(--popup_negative_border);
   outline: none;
 }
+
+.errorMessage {
+  color: var(--error_message);
+}
+
+@keyframes pulse {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.errorMessage.pulse {
+  animation: pulse 0.3s ease-in-out;
+}

@@ -46,6 +46,7 @@ function CountPopup(props) {
     if (bird.customBird === true) {
       delete birds[props.birdKey];
       props.setBirds(birds);
+      props.showNotification(`You have deleted "${bird.displayName}"`, 5000);
       props.closePopup();
     }
   }

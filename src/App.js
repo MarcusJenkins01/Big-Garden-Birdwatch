@@ -3,8 +3,13 @@ import './App.css';
 import Accessibility from './components/accessibility';
 import { Outlet, Link } from "react-router-dom";
 import ColorSchemes from './themes'
+import { FaTimes } from 'react-icons/fa';
 
 function App() {
+  const [notification, setNotification] = useState("");
+  const [notificationHide, setNotificationHide] = useState(false);
+  const [notificationTimeOut, setNotificationTimeOut] = useState(null);
+  const [hideTimeOut, setHideTimeOut] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(0);
   const [fontSize, setFontSize] = useState(18);
   const [accessibilityOptions, setAccessibilityOptions] = useState(false);
@@ -19,13 +24,9 @@ function App() {
   }
 
   const changeFontSize = (newSize) => {
-    console.log(typeof newSize)
     if (typeof newSize === 'undefined' || newSize === 'undefined' || newSize === null) {
-      console.log("hi");
       newSize = 18;
     }
-    
-    console.log(newSize);
 
     localStorage.setItem("fontSize", newSize);
     setFontSize(newSize);
@@ -69,6 +70,34 @@ function App() {
     }
   }, []);
 
+  const hideNotification = () => {
+    setNotificationHide(true);
+    if (notificationTimeOut !== null) {
+      clearTimeout(notificationTimeOut);
+    }
+
+    var timeout = setTimeout(() => {
+      setNotification("");
+      setNotificationHide(false);
+    }, 400);
+    setHideTimeOut(timeout);
+  }
+  const showNotification = (text, time) => {
+    console.log(notificationTimeOut)
+    if (notificationTimeOut !== null) {
+      clearTimeout(notificationTimeOut);
+    }
+    if (hideTimeOut !== null) {
+      clearTimeout(hideTimeOut);
+    }
+    setNotification(text);
+    
+    var timeout = setTimeout(() => {
+      hideNotification();
+    }, time);
+    setNotificationTimeOut(timeout);
+  }
+
   return (
     <div className="App" style={{ fontSize: `${fontSize}px` }}>
       <header className="App-header" ref={headerRef}>
@@ -90,7 +119,8 @@ function App() {
       </header>
 
       <main role="main" className="App-content">
-        <Outlet context={[fontSize, headerHeight]}/>
+        <Outlet context={[fontSize, headerHeight, showNotification]}/>
+
         { accessibilityOptions && <Accessibility
           previewFontSize={setFontSize}
           changeFontSize={changeFontSize}
@@ -99,6 +129,18 @@ function App() {
           fontSize={fontSize}
           headerHeight={headerHeight}
           closePopup={() => setAccessibilityOptions(false)}/> }
+
+          { notification && <div className="notificationContainer">
+              <div className={`notification ${notificationHide ? "hide" : ""}`}>
+                <div className="notificationTop">
+                  <div className="timerText"></div>
+                  <button onClick={hideNotification} className="closeButton"><FaTimes/></button>
+                </div>
+                <div className="notificationText">
+                  {notification}
+                </div>
+              </div>
+            </div> }
       </main>
     </div>
   );
