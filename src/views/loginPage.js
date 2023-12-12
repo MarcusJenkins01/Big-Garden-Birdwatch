@@ -1,4 +1,4 @@
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext, Link } from "react-router-dom";
 import { useState } from "react";
 import './loginPage.css';
 import './forms.css';
@@ -64,6 +64,9 @@ function LoginPage(props) {
       </div>
         <div className="formButtons">
           <button className="formSubmitButton" onClick={login}>Login</button>
+        </div>
+        <div style={{color: "var(--text_dark)"}}>
+          Don't have an account? <Link style={{color: "var(--link_color)"}} to="/">Register now</Link>
         </div>
       </div>
     </div>

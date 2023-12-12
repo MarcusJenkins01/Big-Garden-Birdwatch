@@ -228,7 +228,7 @@ function RegisterPage(props) {
           <button className="formSubmitButton" onClick={register}>Register</button>
         </div>
 
-        <div className="loginPrompt" style={{color: "var(--text_dark)"}}>
+        <div style={{color: "var(--text_dark)"}}>
           Already have an account? <Link style={{color: "var(--link_color)"}} to="/login">Login now</Link>
         </div>
       </div>
