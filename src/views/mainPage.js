@@ -1,7 +1,7 @@
 import './mainPage.css';
 import '../App.css'
 import BirdTile from '../components/birdTile';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import CountPopup from '../components/countPopup';
 import ReportOther from '../components/reportOther';
 import { useOutletContext, useNavigate } from 'react-router-dom';
@@ -133,6 +133,10 @@ function MainPage(props) {
   const quit = () => {
     navigate("/begin");
   }
+
+  useEffect(() => {
+    showNotification("You have now begun. If you need help on how to participate, please click the Help button.", 10000);
+  }, []);
 
   return (
     <div className="mainPageContainer">
