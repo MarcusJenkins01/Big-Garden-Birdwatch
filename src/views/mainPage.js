@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import './mainPage.css';
 import '../App.css'
 import BirdTile from '../components/birdTile';
@@ -8,15 +7,6 @@ import ReportOther from '../components/reportOther';
 import { useOutletContext, useNavigate } from 'react-router-dom';
 import HelpMenu from '../components/helpMenu';
 
-=======
-import "./mainPage.css";
-import "../App.css";
-import BirdTile from "../components/birdTile";
-import React, { useState } from "react";
-import CountPopup from "../components/countPopup";
-import ReportOther from "../components/reportOther";
-import { useOutletContext, useNavigate } from "react-router-dom";
->>>>>>> Stashed changes
 
 function MainPage(props) {
   const navigate = useNavigate();
@@ -191,7 +181,6 @@ function MainPage(props) {
   const [searchInput, setSearchInput] = useState("");
   const [editingBird, setEditingBird] = useState(null);
   const [reportOther, setReportOther] = useState(false);
-<<<<<<< Updated upstream
   const [helpMenu, setHelpMenu] = useState(false);
   
   const tilePressed = (birdKey) => {
@@ -209,18 +198,6 @@ function MainPage(props) {
     setEditingBird(null);
     setReportOther(false);
   }
-=======
-
-  const tilePressed = (birdKey) => {
-    setEditingBird(birdKey);
-    setReportOther(false);
-  };
-
-  const reportOtherPress = () => {
-    setReportOther(true);
-    setEditingBird(null);
-  };
->>>>>>> Stashed changes
 
   const searchHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
@@ -252,27 +229,11 @@ function MainPage(props) {
         style={{ height: `calc(100vh - ${headerHeight}px)` }}
       >
         <div className="topBar">
-<<<<<<< Updated upstream
           <div className="topBarLeft">
             <input onClick={reportOtherPress} className="App-button-primary" type="button" value="Report another bird"/>
             <input onClick={helpPress} className="App-button-primary" type="button" value="Help"/>
           </div>
             <input style={{fontSize: Math.ceil(fontSize * 0.9)}} onChange={searchHandler} className="searchBar" type="text" placeholder="Search"/>
-=======
-          <input
-            onClick={reportOtherPress}
-            className="App-button-primary"
-            type="button"
-            value="Report another bird"
-          />
-          <input
-            style={{ fontSize: Math.ceil(fontSize * 0.9) }}
-            onChange={searchHandler}
-            className="searchBar"
-            type="text"
-            placeholder="Search"
-          />
->>>>>>> Stashed changes
         </div>
         <div className="birdGrid">
           {Object.entries(filteredBirds).map(([key, value]) => (
@@ -295,32 +256,9 @@ function MainPage(props) {
         </div>
       </div>
 
-<<<<<<< Updated upstream
       { editingBird != null && <CountPopup showNotification={showNotification} headerHeight={headerHeight} birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
       { reportOther && <ReportOther showNotification={showNotification} headerHeight={headerHeight} fontSize={fontSize} birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
       { helpMenu && <HelpMenu headerHeight={headerHeight} fontSize={fontSize} closePopup={() => setHelpMenu(false)}/> }
-=======
-      {editingBird != null && (
-        <CountPopup
-          showNotification={showNotification}
-          headerHeight={headerHeight}
-          birdKey={editingBird}
-          birds={birds}
-          setBirds={setBirds}
-          closePopup={() => setEditingBird(null)}
-        />
-      )}
-      {reportOther && (
-        <ReportOther
-          showNotification={showNotification}
-          headerHeight={headerHeight}
-          fontSize={fontSize}
-          birds={birds}
-          setBirds={setBirds}
-          closePopup={() => setReportOther(false)}
-        />
-      )}
->>>>>>> Stashed changes
     </div>
   );
 }
