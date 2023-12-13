@@ -1,12 +1,13 @@
-import { useNavigate, useOutletContext, Link } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate, useOutletContext, Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import './loginPage.css';
 import './forms.css';
 
 
 function LoginPage(props) {
-  const [fontSize, headerHeight] = useOutletContext();
+  const [fontSize, headerHeight, showNotification] = useOutletContext();
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   // Input values
   const [email, setEmail] = useState("");
@@ -43,6 +44,14 @@ function LoginPage(props) {
       }
     }
   }
+
+  useEffect(() => {
+    if (state !== null) {
+      if (state.signed_out === true) {
+        showNotification(`You are now signed out`, 5000);
+      }
+    }
+  }, [])
 
   return (
     <div className="formPageContainer" style={{minHeight: `calc(100vh - ${headerHeight}px)`}}>

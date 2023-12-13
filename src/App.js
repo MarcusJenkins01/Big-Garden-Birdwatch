@@ -127,7 +127,7 @@ function App(props) {
 
   const signOut = () => {
     props.setLoggedIn(false);
-    navigate('/login');
+    navigate('/login', { state: { signed_out: true } });
   }
 
   return (
