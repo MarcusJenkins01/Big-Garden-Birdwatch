@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import './mainPage.css';
 import '../App.css'
 import BirdTile from '../components/birdTile';
@@ -7,101 +8,190 @@ import ReportOther from '../components/reportOther';
 import { useOutletContext, useNavigate } from 'react-router-dom';
 import HelpMenu from '../components/helpMenu';
 
+=======
+import "./mainPage.css";
+import "../App.css";
+import BirdTile from "../components/birdTile";
+import React, { useState } from "react";
+import CountPopup from "../components/countPopup";
+import ReportOther from "../components/reportOther";
+import { useOutletContext, useNavigate } from "react-router-dom";
+>>>>>>> Stashed changes
 
 function MainPage(props) {
   const navigate = useNavigate();
   const [fontSize, headerHeight, showNotification] = useOutletContext();
 
   const [birds, setBirds] = useState({
-    blackbird: { displayName: "Blackbird", count: 0,
-    imageMale: "bird_images/new/blackbird_male.webp",
-    imageFemale: "bird_images/new/blackbird_female.webp",
-    description: "Male blackbirds are jet-black with a bright orange bill and a distinctive orange eye-ring. Female blackbirds are grey-brown, with a more pale bill and a less prominant eye-ring." },
+    blackbird: {
+      displayName: "Blackbird",
+      count: 0,
+      imageMale: "bird_images/new/blackbird_male.webp",
+      imageFemale: "bird_images/new/blackbird_female.webp",
+      description:
+        "Male blackbirds are jet-black with a bright orange bill and a distinctive orange eye-ring. Female blackbirds are grey-brown, with a more pale bill and a less prominant eye-ring.",
+    },
 
-    blue_tit: { displayName: "Blue tit", count: 0,
-    image: "bird_images/new/blue_tit.webp",
-    description: "Blue tits have a blue cap and white cheeks, with a black stripe running through their eye. Their belly is a vibrant yellow. Female blue tits have slightly greyer upper body, as opposed to blue for male blue tits." },
-    
-    carrion_crow: { displayName: "Carrion crow", count: 0,
-    image: "bird_images/new/carrion_crow.webp",
-    description: "The carrion crow is fully black, with a black bill and black feet. Not to be confused with the rook, which has pale grey-white skin where the bill joins the face." },
+    blue_tit: {
+      displayName: "Blue tit",
+      count: 0,
+      image: "bird_images/new/blue_tit.webp",
+      description:
+        "Blue tits have a blue cap and white cheeks, with a black stripe running through their eye. Their belly is a vibrant yellow. Female blue tits have slightly greyer upper body, as opposed to blue for male blue tits.",
+    },
 
-    chaffinch: { displayName: "Chaffinch", count: 0,
-    imageMale: "bird_images/new/chaffinch_male.webp",
-    imageFemale: "bird_images/new/chaffinch_female.webp",
-    description: "Male chaffinches have a distinctive rust-red face, breast and belly. Females are much less striking, with a brown upper body and a grey-white lower body, but share similar markings on the wings." },
+    carrion_crow: {
+      displayName: "Carrion crow",
+      count: 0,
+      image: "bird_images/new/carrion_crow.webp",
+      description:
+        "The carrion crow is fully black, with a black bill and black feet. Not to be confused with the rook, which has pale grey-white skin where the bill joins the face.",
+    },
 
-    coal_tit: { displayName: "Coal tit", count: 0,
-    image: "bird_images/new/coal_tit.webp",
-    description: "Coal tits have a black head and white cheeks. They have an olive-coloured upper back and cream under parts." },
+    chaffinch: {
+      displayName: "Chaffinch",
+      count: 0,
+      imageMale: "bird_images/new/chaffinch_male.webp",
+      imageFemale: "bird_images/new/chaffinch_female.webp",
+      description:
+        "Male chaffinches have a distinctive rust-red face, breast and belly. Females are much less striking, with a brown upper body and a grey-white lower body, but share similar markings on the wings.",
+    },
 
-    collared_dove: { displayName: "Collared dove", count: 0,
-    image: "bird_images/new/collared_dove.webp",
-    description: "The collared dove is pale grey and easily distinguished by its black collar around the back of its neck." },
+    coal_tit: {
+      displayName: "Coal tit",
+      count: 0,
+      image: "bird_images/new/coal_tit.webp",
+      description:
+        "Coal tits have a black head and white cheeks. They have an olive-coloured upper back and cream under parts.",
+    },
 
-    dunnock: { displayName: "Dunnock", count: 0,
-    image: "bird_images/new/dunnock.webp",
-    description: "Dunnocks are primarily grey and brown, with black and brown markings on their wings. Females are similar in appearance to males, but have less prominant markings." },
+    collared_dove: {
+      displayName: "Collared dove",
+      count: 0,
+      image: "bird_images/new/collared_dove.webp",
+      description:
+        "The collared dove is pale grey and easily distinguished by its black collar around the back of its neck.",
+    },
 
-    feral_pigeon: { displayName: "Feral pigeon", count: 0,
-    image: "bird_images/new/feral_pigeon.webp",
-    description: "The feral pigeon is grey with an iridescent green and violet plumage - unlike wood pigeons. Their feet are a bright red colour." },
+    dunnock: {
+      displayName: "Dunnock",
+      count: 0,
+      image: "bird_images/new/dunnock.webp",
+      description:
+        "Dunnocks are primarily grey and brown, with black and brown markings on their wings. Females are similar in appearance to males, but have less prominant markings.",
+    },
 
-    goldfinch: { displayName: "Goldfinch", count: 0,
-    image: "bird_images/new/goldfinch.webp",
-    description: "Goldfinches have a vibrant red markings around their bill, with the rest of the face white and black. Their body is white and brown, with bright yellow and black wings with white markings." },
+    feral_pigeon: {
+      displayName: "Feral pigeon",
+      count: 0,
+      image: "bird_images/new/feral_pigeon.webp",
+      description:
+        "The feral pigeon is grey with an iridescent green and violet plumage - unlike wood pigeons. Their feet are a bright red colour.",
+    },
 
-    great_tit: { displayName: "Great tit", count: 0,
-    imageMale: "bird_images/new/great_tit_male.webp",
-    imageFemale: "bird_images/new/great_tit_female.webp",
-    description: "Great tits have a black head with white cheeks. Their underparts are yellow, with a black stripe extending from their head to their legs. The upper back is an olive-green colour. Females have a less prominant black stripe running down their belly." },
+    goldfinch: {
+      displayName: "Goldfinch",
+      count: 0,
+      image: "bird_images/new/goldfinch.webp",
+      description:
+        "Goldfinches have a vibrant red markings around their bill, with the rest of the face white and black. Their body is white and brown, with bright yellow and black wings with white markings.",
+    },
 
-    greenfinch: { displayName: "Greenfinch", count: 0,
-    imageMale: "bird_images/new/greenfinch_male.webp",
-    imageFemale: "bird_images/new/greenfinch_female.webp",
-    description: "Male greenfinches are greenish-yellow, with have yellow stripes running along their wings and tail. Female greenfinches have a greyer body, but maintain the yellow markings on the wings." },
+    great_tit: {
+      displayName: "Great tit",
+      count: 0,
+      imageMale: "bird_images/new/great_tit_male.webp",
+      imageFemale: "bird_images/new/great_tit_female.webp",
+      description:
+        "Great tits have a black head with white cheeks. Their underparts are yellow, with a black stripe extending from their head to their legs. The upper back is an olive-green colour. Females have a less prominant black stripe running down their belly.",
+    },
 
-    house_sparrow: { displayName: "House sparrow", count: 0,
-    imageMale: "bird_images/new/house_sparrow_male.webp",
-    imageFemale: "bird_images/new/house_sparrow_female.webp",
-    description: "" },
+    greenfinch: {
+      displayName: "Greenfinch",
+      count: 0,
+      imageMale: "bird_images/new/greenfinch_male.webp",
+      imageFemale: "bird_images/new/greenfinch_female.webp",
+      description:
+        "Male greenfinches are greenish-yellow, with have yellow stripes running along their wings and tail. Female greenfinches have a greyer body, but maintain the yellow markings on the wings.",
+    },
 
-    jackdaw: { displayName: "Jackdaw", count: 0,
-    image: "bird_images/new/jackdaw.webp",
-    description: "Jackdaws have a black body and cap, with a distinguishable light grey neck and striking pale-blue eyes. Not to be confused with the rook, which is much larger, and has dark eyes and a longer bill." },
+    house_sparrow: {
+      displayName: "House sparrow",
+      count: 0,
+      imageMale: "bird_images/new/house_sparrow_male.webp",
+      imageFemale: "bird_images/new/house_sparrow_female.webp",
+      description: "",
+    },
 
-    long_tailed_tit: { displayName: "Long-tailed tit", count: 0,
-    image: "bird_images/new/long_tailed_tit.webp",
-    description: "Long-tailed tits are very small, with unique, long tails. They have an off-white belly, and their wings are black and white. Above each eye is a black stripe, which is parted by the white of their head." },
+    jackdaw: {
+      displayName: "Jackdaw",
+      count: 0,
+      image: "bird_images/new/jackdaw.webp",
+      description:
+        "Jackdaws have a black body and cap, with a distinguishable light grey neck and striking pale-blue eyes. Not to be confused with the rook, which is much larger, and has dark eyes and a longer bill.",
+    },
 
-    magpie: { displayName: "Magpie", count: 0,
-    image: "bird_images/new/magpie.webp",
-    description: "Magpies are black and white, with a black bill and black eyes. Their wings and tail have a noticeable green and blue iridescence." },
+    long_tailed_tit: {
+      displayName: "Long-tailed tit",
+      count: 0,
+      image: "bird_images/new/long_tailed_tit.webp",
+      description:
+        "Long-tailed tits are very small, with unique, long tails. They have an off-white belly, and their wings are black and white. Above each eye is a black stripe, which is parted by the white of their head.",
+    },
 
-    robin: { displayName: "Robin", count: 0,
-    image: "bird_images/new/robin.webp",
-    description: "The robin has a rounded brown body, with a distinctive orange face and breast." },
+    magpie: {
+      displayName: "Magpie",
+      count: 0,
+      image: "bird_images/new/magpie.webp",
+      description:
+        "Magpies are black and white, with a black bill and black eyes. Their wings and tail have a noticeable green and blue iridescence.",
+    },
 
-    rook: { displayName: "Rook", count: 0,
-    image: "bird_images/new/rook.webp",
-    description: "The rook has a glossy black body and wings, with black feet and eyes. They are set apart from carrion crows by the pale off-white skin where their bill joins the face." },
+    robin: {
+      displayName: "Robin",
+      count: 0,
+      image: "bird_images/new/robin.webp",
+      description:
+        "The robin has a rounded brown body, with a distinctive orange face and breast.",
+    },
 
-    starling: { displayName: "Starling", count: 0,
-    image: "bird_images/new/starling.webp",
-    description: "Starlings appear black, but may sometimes be iridescent green and purple. Their bodies are marked in white flecks, and their bill is a bright yellow colour." },
+    rook: {
+      displayName: "Rook",
+      count: 0,
+      image: "bird_images/new/rook.webp",
+      description:
+        "The rook has a glossy black body and wings, with black feet and eyes. They are set apart from carrion crows by the pale off-white skin where their bill joins the face.",
+    },
 
-    woodpigeon: { displayName: "Wood pigeon", count: 0,
-    image: "bird_images/new/wood_pigeon.webp",
-    description: "Wood pigeons have a grey breast and belly, with a slight reddish tint. A white patch can be seen on their neck, with a transition to a darker grey for their head." },
+    starling: {
+      displayName: "Starling",
+      count: 0,
+      image: "bird_images/new/starling.webp",
+      description:
+        "Starlings appear black, but may sometimes be iridescent green and purple. Their bodies are marked in white flecks, and their bill is a bright yellow colour.",
+    },
 
-    wren: { displayName: "Wren", count: 0,
-    image: "bird_images/new/wren.webp",
-    description: "Wrens are very small and rounded, with a large head and small tail. They have a brown upper body, and a paler brown belly. They often hold their tails up vertically." },
+    woodpigeon: {
+      displayName: "Wood pigeon",
+      count: 0,
+      image: "bird_images/new/wood_pigeon.webp",
+      description:
+        "Wood pigeons have a grey breast and belly, with a slight reddish tint. A white patch can be seen on their neck, with a transition to a darker grey for their head.",
+    },
+
+    wren: {
+      displayName: "Wren",
+      count: 0,
+      image: "bird_images/new/wren.webp",
+      description:
+        "Wrens are very small and rounded, with a large head and small tail. They have a brown upper body, and a paler brown belly. They often hold their tails up vertically.",
+    },
   });
-  
+
   const [searchInput, setSearchInput] = useState("");
   const [editingBird, setEditingBird] = useState(null);
   const [reportOther, setReportOther] = useState(false);
+<<<<<<< Updated upstream
   const [helpMenu, setHelpMenu] = useState(false);
   
   const tilePressed = (birdKey) => {
@@ -119,6 +209,18 @@ function MainPage(props) {
     setEditingBird(null);
     setReportOther(false);
   }
+=======
+
+  const tilePressed = (birdKey) => {
+    setEditingBird(birdKey);
+    setReportOther(false);
+  };
+
+  const reportOtherPress = () => {
+    setReportOther(true);
+    setEditingBird(null);
+  };
+>>>>>>> Stashed changes
 
   const searchHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
@@ -126,13 +228,18 @@ function MainPage(props) {
   };
 
   var filteredBirds = Object.keys(birds).reduce(function (filtered, key) {
-      if (birds[key].displayName.toLowerCase().includes(searchInput)) filtered[key] = birds[key];
-      return filtered;
+    if (birds[key].displayName.toLowerCase().includes(searchInput))
+      filtered[key] = birds[key];
+    return filtered;
   }, {});
 
   const quit = () => {
     navigate("/begin");
-  }
+  };
+
+  const finish = () => {
+    navigate("/finish");
+  };
 
   useEffect(() => {
     showNotification("You have now begun. If you need help on how to participate, please click the Help button.", 10000);
@@ -140,27 +247,80 @@ function MainPage(props) {
 
   return (
     <div className="mainPageContainer">
-      <div className="mainPage" style={{height: `calc(100vh - ${headerHeight}px)`}}>
+      <div
+        className="mainPage"
+        style={{ height: `calc(100vh - ${headerHeight}px)` }}
+      >
         <div className="topBar">
+<<<<<<< Updated upstream
           <div className="topBarLeft">
             <input onClick={reportOtherPress} className="App-button-primary" type="button" value="Report another bird"/>
             <input onClick={helpPress} className="App-button-primary" type="button" value="Help"/>
           </div>
             <input style={{fontSize: Math.ceil(fontSize * 0.9)}} onChange={searchHandler} className="searchBar" type="text" placeholder="Search"/>
+=======
+          <input
+            onClick={reportOtherPress}
+            className="App-button-primary"
+            type="button"
+            value="Report another bird"
+          />
+          <input
+            style={{ fontSize: Math.ceil(fontSize * 0.9) }}
+            onChange={searchHandler}
+            className="searchBar"
+            type="text"
+            placeholder="Search"
+          />
+>>>>>>> Stashed changes
         </div>
         <div className="birdGrid">
-          { Object.entries(filteredBirds).map( ([key, value]) =>
-          <BirdTile key={key} bird={value} onClick={() => tilePressed(key)}/> ) }
+          {Object.entries(filteredBirds).map(([key, value]) => (
+            <BirdTile key={key} bird={value} onClick={() => tilePressed(key)} />
+          ))}
         </div>
         <div className="controls">
-          <input className="App-button-neutral" type="button" onClick={quit} value="Quit"/>
-          <input className="App-button-success" type="button" value="Finish"/>
+          <input
+            className="App-button-neutral"
+            type="button"
+            onClick={quit}
+            value="Quit"
+          />
+          <input
+            className="App-button-success"
+            type="button"
+            onClick={finish}
+            value="Finish"
+          />
         </div>
       </div>
 
+<<<<<<< Updated upstream
       { editingBird != null && <CountPopup showNotification={showNotification} headerHeight={headerHeight} birdKey={editingBird} birds={birds} setBirds={setBirds} closePopup={() => setEditingBird(null)}/> }
       { reportOther && <ReportOther showNotification={showNotification} headerHeight={headerHeight} fontSize={fontSize} birds={birds} setBirds={setBirds} closePopup={() => setReportOther(false)}/> }
       { helpMenu && <HelpMenu headerHeight={headerHeight} fontSize={fontSize} closePopup={() => setHelpMenu(false)}/> }
+=======
+      {editingBird != null && (
+        <CountPopup
+          showNotification={showNotification}
+          headerHeight={headerHeight}
+          birdKey={editingBird}
+          birds={birds}
+          setBirds={setBirds}
+          closePopup={() => setEditingBird(null)}
+        />
+      )}
+      {reportOther && (
+        <ReportOther
+          showNotification={showNotification}
+          headerHeight={headerHeight}
+          fontSize={fontSize}
+          birds={birds}
+          setBirds={setBirds}
+          closePopup={() => setReportOther(false)}
+        />
+      )}
+>>>>>>> Stashed changes
     </div>
   );
 }
