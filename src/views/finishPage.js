@@ -1,7 +1,9 @@
 import React from "react";
 import "./finishPage.css";
+import { useOutletContext, useNavigate } from "react-router-dom";
 
 function FinishPage({ birds }) {
+  const navigate = useNavigate();
   // Function to process and organize bird data
   const processBirdData = () => {
     if (!birds) {
@@ -47,7 +49,7 @@ function FinishPage({ birds }) {
       <div className="birdListContainer">{birdList}</div>
       <button
         onClick={() => {
-          /* navigate to main page or reset */
+          navigate("/main");
         }}
       >
         New Count
