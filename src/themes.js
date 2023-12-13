@@ -75,6 +75,8 @@ const ColorSchemes = {
     popup_positive_shadow: "rgba(0, 0, 0, 0.2)",
     popup_close_button_bg: "rgba(255, 255, 255, 0.9)",
 
+    help_close_button_bg: "#e0e0e0",
+
     count_button_color: "white",
     count_button_bg: "rgb(73, 178, 185)",
     count_button_border: "transparent",
@@ -192,6 +194,8 @@ const ColorSchemes = {
     popup_positive_border_sz: "2px",
     popup_positive_shadow: "transparent",
     popup_close_button_bg: "black",
+
+    help_close_button_bg: "black",
 
     count_button_color: "black",
     count_button_bg: "yellow",

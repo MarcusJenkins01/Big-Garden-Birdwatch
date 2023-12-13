@@ -2,6 +2,7 @@ import './accessibility.css';
 import '../views/forms.css';
 import '../components/popup.css';
 import { useState } from 'react';
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 function Accessibility(props) {
   const [chosenFontSize, setChosenFontSize] = useState(props.fontSize);
@@ -49,6 +50,8 @@ function Accessibility(props) {
     props.previewDyslexic(setting);
     setChosenDyslexic(setting);
   }
+
+  useLockBodyScroll();
 
   return (
     <div className="popupBackground" style={{height: `calc(100vh - ${props.headerHeight}px)`, top: `${props.headerHeight}px`}}>

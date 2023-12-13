@@ -1,5 +1,6 @@
 .helpMenuContainer {
   padding: 5px;
+  overflow-y: auto;
 }
 
 .helpMenuContent {
@@ -21,4 +22,8 @@
 .helpMenuContent li:last-of-type {
   padding-left: 0;
   margin-bottom: 0;
+}
+
+.helpMenuContainer .closeButtonPopup {
+  background-color: var(--help_close_button_bg);
 }

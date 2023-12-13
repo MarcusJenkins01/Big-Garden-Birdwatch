@@ -1,5 +1,6 @@
 .reportOtherContainer {
   padding: 5px;
+  overflow-y: auto;
 }
 
 .reportOtherContent {

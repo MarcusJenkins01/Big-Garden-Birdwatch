@@ -2,6 +2,7 @@ import './helpMenu.css';
 import '../views/forms.css';
 import '../components/popup.css';
 import { useEffect, useRef, useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
 
 
 function HelpMenu(props) {
@@ -30,6 +31,10 @@ function HelpMenu(props) {
               <li>If you see any birds that aren’t listed then click “Report other” to add it as a new bird.</li>
             </ol>
           </div>
+
+          <button className="closeButtonPopup" onClick={props.closePopup}>
+            <FaTimes/>
+          </button>
         </div>
       </div>
     </div>
