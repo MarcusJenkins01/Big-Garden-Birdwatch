@@ -52,7 +52,7 @@ function LoginPage(props) {
 
         <div className="inputGroup">
           <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Email address</h2>
-          <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
+          <input placeholder="e.g. johnsmith@gmail.com" type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
           <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
         </div>
 

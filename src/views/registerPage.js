@@ -166,13 +166,13 @@ function RegisterPage(props) {
 
           <div className="inputGroup">
             <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Full name</h2>
-            <input type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
+            <input placeholder="e.g. John Smith" type="text" className="input" onChange={(e) => setFullName(e.target.value)} value={fullName}/>
             <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{nameError}</p>
           </div>
 
           <div className="inputGroup">
             <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Email address</h2>
-            <input type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
+            <input placeholder="e.g. johnsmith@gmail.com" type="text" className="input" onChange={(e) => setEmail(e.target.value)} value={email}/>
             <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{emailError}</p>
           </div>
 
@@ -181,7 +181,7 @@ function RegisterPage(props) {
             <>
               <div className="inputGroup">
                 <h2 style={{fontSize: Math.ceil(fontSize * 1.05)}}>Address line 1</h2>
-                <input type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
+                <input placeholder="e.g. 123 Street" type="text" className="input" onChange={(e) => setAddressLine1(e.target.value)} value={addressLine1}/>
                 <p className={`errorMessage ${pulseAnimation ? "pulse" : ""}`}>{addressLine1Error}</p>
               </div>
               <div className="inputGroup">
