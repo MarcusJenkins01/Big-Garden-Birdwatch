@@ -54,7 +54,7 @@
   border-top: none;
   outline: 0;
   padding: 5px;
-  font-family: 'Poppins';
+  font-family: var(--font_family);
   font-size: 1em;
   box-sizing: border-box;
 }

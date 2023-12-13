@@ -26,7 +26,7 @@ function FinishPage() {
       if (!processedData[breed] && bird.count > 0) {
         processedData[breed] = {
           count: bird.count,
-          image: bird.image,
+          image: bird.image ? bird.image : bird.imageMale,
           description: bird.description,
         };
       }
@@ -42,9 +42,7 @@ function FinishPage() {
     <div key={index} className="birdEntry">
       <h3>{breed}</h3>
       <p>Count: {birdData[breed].count}</p>
-      {birdData[breed].image && (
-        <img src={birdData[breed].image} alt={breed} className="finishBirdImage" />
-      )}
+      <img src={birdData[breed].image} alt={breed} className="finishBirdImage" />
       {/* {birdData[breed].description && <p>{birdData[breed].description}</p>} */}
     </div>
   ));
