@@ -20,9 +20,9 @@ function BeginPage(props) {
   useEffect(() => {
     if (props.loggedIn && state !== null) {
       if (state.registered === true) {
-        showNotification(`Successfully registered as ${state.email}`, 7000);
+        showNotification(`Successfully registered as ${state.email}`, 5000);
       } else if (state.logged_in === true) {
-        showNotification(`You are now logged in as ${state.email}`, 7000);
+        showNotification(`You are now logged in as ${state.email}`, 5000);
       }
     }
   }, [])
