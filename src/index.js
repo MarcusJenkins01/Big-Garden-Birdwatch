@@ -5,6 +5,7 @@ import RegisterPage from "./views/registerPage";
 import MainPage from "./views/mainPage";
 import LoginPage from "./views/loginPage";
 import BeginPage from "./views/beginPage";
+import FinishPage from "./views/finishPage";
 
 export default function RoutedApp() {
   return (
@@ -15,6 +16,7 @@ export default function RoutedApp() {
           <Route exact path="begin" element={<BeginPage />} />
           <Route exact path="login" element={<LoginPage />} />
           <Route exact path="main" element={<MainPage />} />
+          <Route exact path="finish" element={<FinishPage />} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>
@@ -22,5 +24,5 @@ export default function RoutedApp() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RoutedApp />);

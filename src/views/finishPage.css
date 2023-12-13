@@ -1,0 +1,89 @@
+.finishPageContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--main_bg);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.finishPage {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+}
+
+.birdListContainer {
+  margin: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+}
+
+.birdEntry {
+  background-color: var(--main_controls_bg);
+  box-shadow: 0 0 10px 0 var(--shadow1);
+  padding: 16px;
+  border-radius: var(--search_border_radius);
+  border: var(--main_bottom_top_border_sz) solid var(--main_bottom_top_border);
+  box-sizing: border-box;
+  flex-basis: calc(50% - 20px); /* For two columns layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.birdImage {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.finishTopBar {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--main_top_bar_bg);
+  box-shadow: 0 0 10px 0 var(--shadow1);
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--main_bottom_top_border_sz) solid
+    var(--main_bottom_top_border);
+}
+
+.finishButton {
+  color: var(--search_color);
+  background-color: var(--search_bg);
+  font-family: var(--font_family);
+  border: var(--search_border_sz) solid var(--search_border);
+  border-radius: var(--search_border_radius);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.finishButton:hover,
+.finishButton:focus {
+  background-color: var(--main_top_bar_bg); /* Change as needed */
+  color: var(--main_controls_bg); /* Change as needed */
+  border-color: var(--main_bottom_top_border); /* Change as needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .finishButton {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
