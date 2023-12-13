@@ -12,6 +12,10 @@ function MainPage(props) {
   const navigate = useNavigate();
   const [fontSize, headerHeight, showNotification] = useOutletContext();
 
+  if (!props.loggedIn) {
+    navigate("/login");
+  }
+
   const [birds, setBirds] = useState({
     blackbird: {
       displayName: "Blackbird",
@@ -219,7 +223,9 @@ function MainPage(props) {
   };
 
   useEffect(() => {
-    showNotification("You have now begun. If you need help on how to participate, please click the Help button.", 10000);
+    if (props.loggedIn) {
+      showNotification("You have now begun. If you need help on how to participate, please click the Help button.", 10000);
+    }
   }, []);
 
   return (

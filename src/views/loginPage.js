@@ -34,6 +34,7 @@ function LoginPage(props) {
     }
 
     if (!errors) {
+      props.setLoggedIn(true);
       navigate("/begin", { state: { email: email, registered: false, logged_in: true } });
     } else {
       if (!pulseAnimation) {

@@ -74,8 +74,6 @@ function RegisterPage(props) {
       errors = true;
     }
 
-    
-
     if (postcodeText.length === 0) {
       setPostcodeError("Please enter your postcode");
       errors = true;
@@ -114,6 +112,7 @@ function RegisterPage(props) {
     }
 
     if (!errors) {
+      props.setLoggedIn(true);
       navigate("/begin", { state: { email: email, registered: true, logged_in: false } });
     } else {
       if (!pulseAnimation) {

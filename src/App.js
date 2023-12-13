@@ -1,11 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
 import './App.css';
 import Accessibility from './components/accessibility';
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import ColorSchemes from './themes'
 import { FaTimes } from 'react-icons/fa';
 
-function App() {
+function App(props) {
+  const navigate = useNavigate();
+
   const [notification, setNotification] = useState("");
   const [notificationHide, setNotificationHide] = useState(false);
   const [notificationTimeOut, setNotificationTimeOut] = useState(null);
@@ -123,6 +125,11 @@ function App() {
     setNotificationTimeOut(timeout);
   }
 
+  const signOut = () => {
+    props.setLoggedIn(false);
+    navigate('/login');
+  }
+
   return (
     <div className="App" style={{ fontSize: `${fontSize}px` }}>
       <header className="App-header" ref={headerRef}>
@@ -133,8 +140,11 @@ function App() {
 
         <div className="headerRightContainer">
           <div className="navigationContainer">
-            <Link to="/login">Login</Link>
-            <Link to="/">Register</Link>
+            { props.loggedIn ? <button className="signout" onClick={signOut}>Sign out</button> : <>
+              <Link to="/login">Login</Link>
+              <Link to="/">Register</Link>
+            </> }
+            
           </div>
 
           <div className="accessibilityTools">

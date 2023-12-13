@@ -9,6 +9,10 @@ function BeginPage(props) {
   const [fontSize, headerHeight, showNotification] = useOutletContext();
   const navigate = useNavigate();
 
+  if (!props.loggedIn) {
+    navigate("/login");
+  }
+
   const start = () => {
     navigate("/main");
   }
