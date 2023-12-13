@@ -1,7 +1,7 @@
 import './countPopup.css';
 import './popup.css';
 import { useEffect, useRef, useState } from 'react';
-import { FaPlus } from 'react-icons/fa';
+import { FaPlus, FaTimes } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
 
 function CountPopup(props) {
@@ -103,6 +103,8 @@ function CountPopup(props) {
             <FaPlus/>
           </button>
         </div>
+        
+        <button className="closeButtonPopup" onClick={props.closePopup}><FaTimes/></button>
 
         {bird.customBird === true && <div className="deleteBirdContainer">
           <button class="deleteBirdButton" onClick={deleteBird}>Delete</button>

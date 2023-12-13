@@ -5,6 +5,20 @@
   background-color: var(--main_bg);
   padding: 16px;
   box-sizing: border-box;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.finishPageContainer h1 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.finishPageContainer h3 {
+  font-size: 1em;
+  text-align: center;
+
 }
 
 .finishPage {
@@ -20,28 +34,37 @@
   margin: 16px;
   box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 20px;
-  max-width: 1000px;
+  max-width: 700px;
 }
 
 .birdEntry {
   background-color: var(--main_controls_bg);
   box-shadow: 0 0 10px 0 var(--shadow1);
-  padding: 16px;
+  padding: 1em;
   border-radius: var(--search_border_radius);
   border: var(--main_bottom_top_border_sz) solid var(--main_bottom_top_border);
   box-sizing: border-box;
-  flex-basis: calc(50% - 20px); /* For two columns layout */
+  width: calc(33% - 11px); /* For two columns layout */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.birdEntry h3 {
+  font-size: 1em;
+  margin-block: 0;
+  margin-bottom: 0.3em;
+}
+.birdEntry p {
+  font-size: 1em;
+  margin: 0;
+  margin-bottom: 1em;
+}
 
-.finishPage .birdImage {
-  max-width: 100px;
+.birdEntry .finishBirdImage {
+  width: 100%;
   height: auto;
-  margin-bottom: 10px;
 }
 
 .finishTopBar {
@@ -85,5 +108,20 @@
   .finishButton {
     padding: 8px 16px;
     font-size: 14px;
+  }
+}
+
+@media (max-width: 650px) {
+  .birdListContainer {
+    flex-wrap: wrap;
+  }
+  .birdEntry {
+    width: calc(50% - 11px); /* For two columns layout */
+  }
+}
+
+@media (max-width: 440px) {
+  .birdEntry {
+    width: calc(100%); /* For two columns layout */
   }
 }

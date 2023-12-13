@@ -215,7 +215,7 @@ function MainPage(props) {
   };
 
   const finish = () => {
-    navigate("/finish");
+    navigate("/finish", {state: {birds: birds}});
   };
 
   useEffect(() => {
