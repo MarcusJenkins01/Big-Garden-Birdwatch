@@ -9,15 +9,15 @@ function BeginPage(props) {
   const [fontSize, headerHeight, showNotification] = useOutletContext();
   const navigate = useNavigate();
 
-  if (!props.loggedIn) {
-    navigate("/login");
-  }
-
   const start = () => {
     navigate("/main");
   }
 
   useEffect(() => {
+    if (!props.loggedIn) {
+      navigate("/login");
+    }
+
     if (props.loggedIn && state !== null) {
       if (state.registered === true) {
         showNotification(`Successfully registered as ${state.email}`, 5000);
